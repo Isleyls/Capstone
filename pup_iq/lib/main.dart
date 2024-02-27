@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget
                     height: 100,),
         backgroundColor: Colors.blue,
         actions: <Widget>[ IconButton(
-          icon: const Icon(Icons.account_circle),
+          icon: Icon(Icons.account_circle),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
           },
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget
             children: <Widget>[
               Container(
                 height: 75,
-                child:const DrawerHeader(
+                child: DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
@@ -63,28 +63,28 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: const Text("Resources"),
+              ListTile(title: Text("Resources"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
 
               },
               ),
-               ListTile(title: const Text("FAQ"),
+               ListTile(title: Text("FAQ"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
               },
               ),
-               ListTile(title: const Text("New Owners"),
+               ListTile(title: Text("New Owners"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NewOwnersPage()),);
               },
               ),
-               ListTile(title: const Text("Privacy Policy"),
+               ListTile(title: Text("Privacy Policy"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),);
               },
               ),
-               ListTile(title: const Text("Terms Of Use"),
+               ListTile(title: Text("Terms Of Use"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => TermsOfUsePage()),);
               },
@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget
           children: [
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 children:[
                   GestureDetector(
                     onTap: () {
@@ -105,8 +105,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Current Lesson",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -122,8 +122,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("New Dog",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -139,8 +139,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Basics",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -156,8 +156,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Intermediate",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -173,8 +173,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Hard",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -200,15 +200,67 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Name"),
         backgroundColor: Colors.blue,
+        title: Center( // Wrapping the DropdownButton with Center widget
+          child: DropdownButton<String>(
+             hint: Text(
+              'Choose/Add Profile',
+              style: TextStyle(
+                color: Colors.black, // Change text color to black
+              ),
+            ),
+            onChanged: (value) {
+              if (value == 'Profile 1') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              } else if (value == 'Profile 2') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              } else if (value == 'Profile 3') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              }
+              else if (value == 'AddProfile') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NewProfilePage()),
+                );
+              }
+            },
+            items: [
+              DropdownMenuItem(
+                value: 'Page 1',
+                child: Text('Profile 1'),
+              ),
+              DropdownMenuItem(
+                value: 'Page 2',
+                child: Text('Profile 2'),
+              ),
+              DropdownMenuItem(
+                value: 'Page 3',
+                child: Text('Profile 3'),
+              ),
+              DropdownMenuItem(
+                value: 'AddProfile',
+                child: Text('Add/Switch Profile'),
+              ),
+            ],
+          ),
+        ),
+      ),
         /*actions: <Widget>[
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {},
           ),
         ],*/
-      ),
+      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -221,7 +273,7 @@ class ProfilePage extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        const SizedBox(height: 30),
+                        SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
                             'lesson.jpg',
@@ -230,13 +282,13 @@ class ProfilePage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);
                            
                           },
-                          child: const Text('Edit Profile'),
+                          child: Text('Edit Profile'),
                         ),
                       ],
                     ),
@@ -244,8 +296,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: const Center(
+                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                  child: Center(
                     child: Text(
                       "Breed",
                       style: TextStyle(
@@ -258,8 +310,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                  child: const Center(
+                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                  child: Center(
                     child: Text(
                       "Age",
                       style: TextStyle(
@@ -272,8 +324,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: const Center(
+                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                  child: Center(
                     child: Text(
                       "Weight",
                       style: TextStyle(
@@ -297,7 +349,7 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Edit Profile"),
+        title: Text("Edit Profile"),
         backgroundColor: Colors.blue,
         
       ),
@@ -308,12 +360,12 @@ class EditProfilePage extends StatelessWidget {
             child: ListView(
               children: [
                 Container(
-                  height: 200,
+                  height: 250,
                   color: Colors.blue,
                   child: Center(
                     child: Column(
                       children: [
-                        const SizedBox(height: 30),
+                        SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
                             'lesson.jpg',
@@ -322,47 +374,265 @@ class EditProfilePage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        
+                        SizedBox(height:10),
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white, // Set the background color to white
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.blue, // Set the icon color
+                            onPressed: () {
+                              // Action to perform when the edit button is pressed
+                              print("Edit Image Pressed");
+                            },
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's name",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Action to perform when the submit button is pressed
+                        print("Submit Button Pressed for name");
+                      },
+                      child: Text("Submit"),
+                    )
+                  ],
+                ),
+              ),
+                
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's breed",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                    onPressed: () {
+                      // Action to perform when the submit button is pressed
+                      print("Submit Button Pressed for breed");
+                    },
+                    child: Text("Submit"),
+                  )
+                ],
+              ),
+            ),
+                
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: Row(
+              children: [
+                Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's name",
+                    decoration: InputDecoration(
+                      labelText: "Enter your pet's Age",
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's breed",
+                SizedBox(width: 10),
+                ElevatedButton(
+                onPressed: () {
+                  // Action to perform when the submit button is pressed
+                  print("Submit Button Pressed for Age");
+                },
+                child: Text("Submit"),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your pet's weight",
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+              onPressed: () {
+                // Action to perform when the submit button is pressed
+                print("Submit Button Pressed for Weight");
+              },
+              child: Text("Submit"),
+            )
+          ],
+        ),
+      )
+              ],
+            ),
+          ),
+        ],
+      )
+
+    );
+  }
+}
+class NewProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Profile"),
+        backgroundColor: Colors.blue,
+        
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
+                Container(
+                  height: 250,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30),
+                        ClipOval(
+                          child: Image.asset(
+                            'lesson.jpg',
+                            width: 140,
+                            height: 140,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(height:10),
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white, // Set the background color to white
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.blue, // Set the icon color
+                            onPressed: () {
+                              // Action to perform when the edit button is pressed
+                              print("Edit Image Pressed");
+                            },
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's name",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Action to perform when the submit button is pressed
+                        print("Submit Button Pressed for name");
+                      },
+                      child: Text("Submit"),
+                    )
+                  ],
+                ),
+              ),
+                
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's breed",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                    onPressed: () {
+                      // Action to perform when the submit button is pressed
+                      print("Submit Button Pressed for breed");
+                    },
+                    child: Text("Submit"),
+                  )
+                ],
+              ),
+            ),
+                
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: Row(
+              children: [
+                Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's age",
+                    decoration: InputDecoration(
+                      labelText: "Enter your pet's Age",
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's weight",
-                    ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                onPressed: () {
+                  // Action to perform when the submit button is pressed
+                  print("Submit Button Pressed for Age");
+                },
+                child: Text("Submit"),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your pet's weight",
                   ),
                 ),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+              onPressed: () {
+                // Action to perform when the submit button is pressed
+                print("Submit Button Pressed for Weight");
+              },
+              child: Text("Submit"),
+            )
+          ],
+        ),
+      )
               ],
             ),
           ),
@@ -374,11 +644,10 @@ class EditProfilePage extends StatelessWidget {
 }
 
 
-
 class resourcesPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Resources"),
+      appBar: AppBar(title: Text("Resources"),
       backgroundColor: Colors.blue),
     );
   }
@@ -396,7 +665,7 @@ class _FAQPageState extends State<FAQPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FAQ'),
+        title: Text('FAQ'),
       ),
       body: ListView(
         children: [
@@ -473,7 +742,7 @@ class FAQItem extends StatelessWidget {
             return ListTile(
               title: Text(
                 question,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   
@@ -482,7 +751,7 @@ class FAQItem extends StatelessWidget {
             );
           },
           body: Padding(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
             child: Text(answer),
           ),
         ),
@@ -493,7 +762,7 @@ class FAQItem extends StatelessWidget {
 class NewOwnersPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("New Owners"),
+      appBar: AppBar(title: Text("New Owners"),
       backgroundColor: Colors.blue),
     );
   }
@@ -502,9 +771,9 @@ class NewOwnersPage extends StatelessWidget{
 class PrivacyPolicyPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Privacy Policy"),
+      appBar: AppBar(title: Text("Privacy Policy"),
       backgroundColor: Colors.blue),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -541,10 +810,10 @@ class TermsOfUsePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Terms Of Use"),
+        title: Text("Terms Of Use"),
         backgroundColor: Colors.blue,
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -596,7 +865,7 @@ class TermsOfUsePage extends StatelessWidget {
             ),
             ),
             SizedBox(height: 10),
-            const Text(
+            Text(
               'We reserve the right to refuse service, terminate accounts, or restrict access to the App for any reason, without prior notice.',
               style: TextStyle(fontSize: 18),
             ),
@@ -724,7 +993,7 @@ class TermsOfUsePage extends StatelessWidget {
 class NewDogPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Hard Lessons"),
+      appBar: AppBar(title: Text("Hard Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -738,8 +1007,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Potty Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -754,8 +1023,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Crate Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -770,8 +1039,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Name Learning",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -786,8 +1055,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Leash Introduction",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -810,7 +1079,7 @@ class NewDogPage extends StatelessWidget{
 class BasicsPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Basics Training"),
+      appBar: AppBar(title: Text("Basics Training"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -820,12 +1089,12 @@ class BasicsPage extends StatelessWidget{
                 children:[
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SitPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SitPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Sit",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -837,13 +1106,13 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DownPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => DownPage()),);
                   
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Lay Down",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -855,12 +1124,12 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const StayPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => StayPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Stay",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -872,12 +1141,12 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LeavePage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LeavePage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Leave It",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -900,7 +1169,7 @@ class BasicsPage extends StatelessWidget{
 class IntermediatePage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Intermediate Lessons"),
+      appBar: AppBar(title: Text("Intermediate Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -914,8 +1183,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Go To Bed/Kennel",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -930,8 +1199,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Speak",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -946,8 +1215,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Shake",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -962,8 +1231,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Roll Over",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -986,7 +1255,7 @@ class IntermediatePage extends StatelessWidget{
 class HardPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: const Text("Hard Lessons"),
+      appBar: AppBar(title: Text("Hard Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -997,12 +1266,12 @@ class HardPage extends StatelessWidget{
                   
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const CrawlPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CrawlPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Crawl",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -1017,8 +1286,8 @@ class HardPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Spin/Not Done",
                         style: TextStyle(fontSize: 25,
                         color: Colors.red,
@@ -1033,8 +1302,8 @@ class HardPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: Center(
                         child: Text("Recall/Not Done",
                         style: TextStyle(fontSize: 25,
                         color: Colors.red,
@@ -1046,12 +1315,12 @@ class HardPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const BellsPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => BellsPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: const Center(
+                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: Center(
                         child: Text("Ring Bell For Bathroom",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -1088,7 +1357,7 @@ class _SitPage extends State<SitPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Sit"),
+      appBar: AppBar(title: Text("Sit"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1111,7 +1380,7 @@ class _DownPage extends State<DownPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Down"),
+      appBar: AppBar(title: Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1134,7 +1403,7 @@ class _StayPage extends State<StayPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Stay"),
+      appBar: AppBar(title: Text("Stay"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1157,7 +1426,7 @@ class _LeavePage extends State<LeavePage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Down"),
+      appBar: AppBar(title: Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1180,7 +1449,7 @@ class _BellsPage extends State<BellsPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Ring Bell For Bathroom"),
+      appBar: AppBar(title: Text("Ring Bell For Bathroom"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1203,15 +1472,13 @@ class _CrawlPage extends State<CrawlPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: const Text("Crawl"),
+      appBar: AppBar(title: Text("Crawl"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
       ),
     );
 }
-
-
 }
 
 /*
