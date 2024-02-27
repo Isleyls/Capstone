@@ -305,14 +305,72 @@ class EditProfilePage extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
+                Container(
+                  height: 200,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30),
+                        ClipOval(
+                          child: Image.asset(
+                            'lesson.jpg',
+                            width: 140,
+                            height: 140,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your pet's name",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your pet's breed",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your pet's age",
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Enter your pet's weight",
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ],
-      ),
+      )
+
     );
   }
 }
+
 
 
 class resourcesPage extends StatelessWidget{
