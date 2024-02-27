@@ -1223,7 +1223,11 @@ class PuppyList extends ChangeNotifier {
   ];
 
   void addPuppy(String name, String breed, String age, String weight) {
-    puppyList.add(puppy(name, breed, int.parse(age)  , int.parse(weight)));
+    puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
+  }
+
+  puppy getPuppy(int index) {
+    return puppyList[index];
   }
 
   // Returns the list of dogs
