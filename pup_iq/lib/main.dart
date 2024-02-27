@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import 'puppy.dart';
+
 void main()
 {
   runApp(MyApp());
@@ -34,7 +36,7 @@ class HomePage extends StatelessWidget
                     height: 100,),
         backgroundColor: Colors.blue,
         actions: <Widget>[ IconButton(
-          icon: Icon(Icons.account_circle),
+          icon: const Icon(Icons.account_circle),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
           },
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget
             children: <Widget>[
               Container(
                 height: 75,
-                child:DrawerHeader(
+                child:const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
@@ -61,28 +63,28 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: Text("Resources"),
+              ListTile(title: const Text("Resources"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
 
               },
               ),
-               ListTile(title: Text("FAQ"),
+               ListTile(title: const Text("FAQ"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
               },
               ),
-               ListTile(title: Text("New Owners"),
+               ListTile(title: const Text("New Owners"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NewOwnersPage()),);
               },
               ),
-               ListTile(title: Text("Privacy Policy"),
+               ListTile(title: const Text("Privacy Policy"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),);
               },
               ),
-               ListTile(title: Text("Terms Of Use"),
+               ListTile(title: const Text("Terms Of Use"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => TermsOfUsePage()),);
               },
@@ -95,7 +97,7 @@ class HomePage extends StatelessWidget
           children: [
             Expanded(
               child: ListView(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 children:[
                   GestureDetector(
                     onTap: () {
@@ -103,8 +105,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Current Lesson",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -120,8 +122,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("New Dog",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -137,8 +139,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Basics",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -154,8 +156,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Intermediate",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -171,8 +173,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Hard",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -198,7 +200,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Name"),
+        title: const Text("Name"),
         backgroundColor: Colors.blue,
         /*actions: <Widget>[
           IconButton(
@@ -219,7 +221,7 @@ class ProfilePage extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
                             'lesson.jpg',
@@ -228,13 +230,13 @@ class ProfilePage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);
                            
                           },
-                          child: Text('Edit Profile'),
+                          child: const Text('Edit Profile'),
                         ),
                       ],
                     ),
@@ -242,8 +244,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: Center(
+                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                  child: const Center(
                     child: Text(
                       "Breed",
                       style: TextStyle(
@@ -256,8 +258,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                  child: Center(
+                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                  child: const Center(
                     child: Text(
                       "Age",
                       style: TextStyle(
@@ -270,8 +272,8 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Container(
                   height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: Center(
+                  color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                  child: const Center(
                     child: Text(
                       "Weight",
                       style: TextStyle(
@@ -295,7 +297,7 @@ class EditProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Profile"),
+        title: const Text("Edit Profile"),
         backgroundColor: Colors.blue,
         
       ),
@@ -311,7 +313,7 @@ class EditProfilePage extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        SizedBox(height: 30),
+                        const SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
                             'lesson.jpg',
@@ -376,7 +378,7 @@ class EditProfilePage extends StatelessWidget {
 class resourcesPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Resources"),
+      appBar: AppBar(title: const Text("Resources"),
       backgroundColor: Colors.blue),
     );
   }
@@ -394,7 +396,7 @@ class _FAQPageState extends State<FAQPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FAQ'),
+        title: const Text('FAQ'),
       ),
       body: ListView(
         children: [
@@ -471,7 +473,7 @@ class FAQItem extends StatelessWidget {
             return ListTile(
               title: Text(
                 question,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   
@@ -480,7 +482,7 @@ class FAQItem extends StatelessWidget {
             );
           },
           body: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Text(answer),
           ),
         ),
@@ -491,7 +493,7 @@ class FAQItem extends StatelessWidget {
 class NewOwnersPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("New Owners"),
+      appBar: AppBar(title: const Text("New Owners"),
       backgroundColor: Colors.blue),
     );
   }
@@ -500,9 +502,9 @@ class NewOwnersPage extends StatelessWidget{
 class PrivacyPolicyPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Privacy Policy"),
+      appBar: AppBar(title: const Text("Privacy Policy"),
       backgroundColor: Colors.blue),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -539,10 +541,10 @@ class TermsOfUsePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Terms Of Use"),
+        title: const Text("Terms Of Use"),
         backgroundColor: Colors.blue,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         padding: EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -594,7 +596,7 @@ class TermsOfUsePage extends StatelessWidget {
             ),
             ),
             SizedBox(height: 10),
-            Text(
+            const Text(
               'We reserve the right to refuse service, terminate accounts, or restrict access to the App for any reason, without prior notice.',
               style: TextStyle(fontSize: 18),
             ),
@@ -722,7 +724,7 @@ class TermsOfUsePage extends StatelessWidget {
 class NewDogPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Hard Lessons"),
+      appBar: AppBar(title: const Text("Hard Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -736,8 +738,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Potty Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -752,8 +754,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Crate Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -768,8 +770,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Name Learning",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -784,8 +786,8 @@ class NewDogPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Leash Introduction",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -808,7 +810,7 @@ class NewDogPage extends StatelessWidget{
 class BasicsPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Basics Training"),
+      appBar: AppBar(title: const Text("Basics Training"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -818,12 +820,12 @@ class BasicsPage extends StatelessWidget{
                 children:[
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SitPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SitPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Sit",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -835,13 +837,13 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DownPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DownPage()),);
                   
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Lay Down",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -853,12 +855,12 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => StayPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const StayPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Stay",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -870,12 +872,12 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LeavePage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LeavePage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Leave It",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -898,7 +900,7 @@ class BasicsPage extends StatelessWidget{
 class IntermediatePage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Intermediate Lessons"),
+      appBar: AppBar(title: const Text("Intermediate Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -912,8 +914,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Go To Bed/Kennel",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -928,8 +930,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Speak",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -944,8 +946,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Shake",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -960,8 +962,8 @@ class IntermediatePage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Roll Over",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -984,7 +986,7 @@ class IntermediatePage extends StatelessWidget{
 class HardPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Hard Lessons"),
+      appBar: AppBar(title: const Text("Hard Lessons"),
       backgroundColor: Colors.blue),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -995,12 +997,12 @@ class HardPage extends StatelessWidget{
                   
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CrawlPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const CrawlPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Crawl",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -1015,8 +1017,8 @@ class HardPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Spin/Not Done",
                         style: TextStyle(fontSize: 25,
                         color: Colors.red,
@@ -1031,8 +1033,8 @@ class HardPage extends StatelessWidget{
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Recall/Not Done",
                         style: TextStyle(fontSize: 25,
                         color: Colors.red,
@@ -1044,12 +1046,12 @@ class HardPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => BellsPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const BellsPage()),);
                     },
                     child: Container(
                       height: 205,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Ring Bell For Bathroom",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -1086,7 +1088,7 @@ class _SitPage extends State<SitPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Sit"),
+      appBar: AppBar(title: const Text("Sit"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1109,7 +1111,7 @@ class _DownPage extends State<DownPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Down"),
+      appBar: AppBar(title: const Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1132,7 +1134,7 @@ class _StayPage extends State<StayPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Stay"),
+      appBar: AppBar(title: const Text("Stay"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1155,7 +1157,7 @@ class _LeavePage extends State<LeavePage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Down"),
+      appBar: AppBar(title: const Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1178,7 +1180,7 @@ class _BellsPage extends State<BellsPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Ring Bell For Bathroom"),
+      appBar: AppBar(title: const Text("Ring Bell For Bathroom"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -1201,14 +1203,72 @@ class _CrawlPage extends State<CrawlPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Crawl"),
+      appBar: AppBar(title: const Text("Crawl"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
       ),
     );
 }
+
+
 }
 
+/*
+* A class to store and edit the list of dogs. 
+*/
+class PuppyList extends ChangeNotifier {
+  List<puppy> puppyList = [
+    puppy("Tobias", "Corgi", 0, 10)
+  ];
 
+  void addPuppy(String name, String breed, String age, String weight) {
+    puppyList.add(puppy(name, breed, int.parse(age)  , int.parse(weight)));
+  }
 
+  // Returns the list of dogs
+  List<puppy> getData() {
+    return puppyList;
+  }
+
+  // Sets the list of dogs
+  void setData(List<puppy> newList) {
+    puppyList = newList;
+  }
+
+  // Edits the name
+  void editName(puppy toEdit, String newName) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setName(newName);
+    }
+  }
+
+  // edits the weight
+  void editWeight(puppy toEdit, String newWeight) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setWeight(int.parse(newWeight));
+    }
+  }
+
+  // edits the Breed
+  void editBreed(puppy toEdit, String newBreed) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setBreed(newBreed);
+    }
+  }
+
+  // edits the Age
+  void editAge(puppy toEdit, String newAge) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setWeight(int.parse(newAge));
+    }
+  }
+}
