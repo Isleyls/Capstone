@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import 'puppy.dart';
+
 void main()
 {
   runApp(MyApp());
@@ -49,7 +51,7 @@ class HomePage extends StatelessWidget
             children: <Widget>[
               Container(
                 height: 75,
-                child:DrawerHeader(
+                child: DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
@@ -198,15 +200,67 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Name"),
         backgroundColor: Colors.blue,
+        title: Center( // Wrapping the DropdownButton with Center widget
+          child: DropdownButton<String>(
+             hint: Text(
+              'Choose/Add Profile',
+              style: TextStyle(
+                color: Colors.black, // Change text color to black
+              ),
+            ),
+            onChanged: (value) {
+              if (value == 'Profile 1') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              } else if (value == 'Profile 2') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              } else if (value == 'Profile 3') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              }
+              else if (value == 'AddProfile') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NewProfilePage()),
+                );
+              }
+            },
+            items: [
+              DropdownMenuItem(
+                value: 'Page 1',
+                child: Text('Profile 1'),
+              ),
+              DropdownMenuItem(
+                value: 'Page 2',
+                child: Text('Profile 2'),
+              ),
+              DropdownMenuItem(
+                value: 'Page 3',
+                child: Text('Profile 3'),
+              ),
+              DropdownMenuItem(
+                value: 'AddProfile',
+                child: Text('Add/Switch Profile'),
+              ),
+            ],
+          ),
+        ),
+      ),
         /*actions: <Widget>[
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {},
           ),
         ],*/
-      ),
+      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -306,7 +360,7 @@ class EditProfilePage extends StatelessWidget {
             child: ListView(
               children: [
                 Container(
-                  height: 200,
+                  height: 250,
                   color: Colors.blue,
                   child: Center(
                     child: Column(
@@ -320,47 +374,116 @@ class EditProfilePage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        
+                        SizedBox(height:10),
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white, // Set the background color to white
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.blue, // Set the icon color
+                            onPressed: () {
+                              // Action to perform when the edit button is pressed
+                              print("Edit Image Pressed");
+                            },
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's name",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Action to perform when the submit button is pressed
+                        print("Submit Button Pressed for name");
+                      },
+                      child: Text("Submit"),
+                    )
+                  ],
+                ),
+              ),
+                
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's breed",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                    onPressed: () {
+                      // Action to perform when the submit button is pressed
+                      print("Submit Button Pressed for breed");
+                    },
+                    child: Text("Submit"),
+                  )
+                ],
+              ),
+            ),
+                
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: Row(
+              children: [
+                Expanded(
                   child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's name",
+                    decoration: InputDecoration(
+                      labelText: "Enter your pet's Age",
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's breed",
-                    ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                onPressed: () {
+                  // Action to perform when the submit button is pressed
+                  print("Submit Button Pressed for Age");
+                },
+                child: Text("Submit"),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your pet's weight",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's age",
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: "Enter your pet's weight",
-                    ),
-                  ),
-                ),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+              onPressed: () {
+                // Action to perform when the submit button is pressed
+                print("Submit Button Pressed for Weight");
+              },
+              child: Text("Submit"),
+            )
+          ],
+        ),
+      )
               ],
             ),
           ),
@@ -370,7 +493,155 @@ class EditProfilePage extends StatelessWidget {
     );
   }
 }
+class NewProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Add Profile"),
+        backgroundColor: Colors.blue,
+        
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
+                Container(
+                  height: 250,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30),
+                        ClipOval(
+                          child: Image.asset(
+                            'lesson.jpg',
+                            width: 140,
+                            height: 140,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(height:10),
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white, // Set the background color to white
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.blue, // Set the icon color
+                            onPressed: () {
+                              // Action to perform when the edit button is pressed
+                              print("Edit Image Pressed");
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's name",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Action to perform when the submit button is pressed
+                        print("Submit Button Pressed for name");
+                      },
+                      child: Text("Submit"),
+                    )
+                  ],
+                ),
+              ),
+                
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Enter your pet's breed",
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    ElevatedButton(
+                    onPressed: () {
+                      // Action to perform when the submit button is pressed
+                      print("Submit Button Pressed for breed");
+                    },
+                    child: Text("Submit"),
+                  )
+                ],
+              ),
+            ),
+                
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Enter your pet's Age",
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+                ElevatedButton(
+                onPressed: () {
+                  // Action to perform when the submit button is pressed
+                  print("Submit Button Pressed for Age");
+                },
+                child: Text("Submit"),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your pet's weight",
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+              onPressed: () {
+                // Action to perform when the submit button is pressed
+                print("Submit Button Pressed for Weight");
+              },
+              child: Text("Submit"),
+            )
+          ],
+        ),
+      )
+              ],
+            ),
+          ),
+        ],
+      )
 
+    );
+  }
+}
 
 
 class resourcesPage extends StatelessWidget{
@@ -995,7 +1266,7 @@ class HardPage extends StatelessWidget{
                   
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>CrawlPage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CrawlPage()),);
                     },
                     child: Container(
                       height: 205,
@@ -1210,5 +1481,65 @@ class _CrawlPage extends State<CrawlPage>
 }
 }
 
+/*
+* A class to store and edit the list of dogs. 
+*/
+class PuppyList extends ChangeNotifier {
+  List<puppy> puppyList = [
+    puppy("Tobias", "Corgi", 0, 10)
+  ];
 
+  void addPuppy(String name, String breed, String age, String weight) {
+    puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
+  }
 
+  puppy getPuppy(int index) {
+    return puppyList[index];
+  }
+
+  // Returns the list of dogs
+  List<puppy> getData() {
+    return puppyList;
+  }
+
+  // Sets the list of dogs
+  void setData(List<puppy> newList) {
+    puppyList = newList;
+  }
+
+  // Edits the name
+  void editName(puppy toEdit, String newName) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setName(newName);
+    }
+  }
+
+  // edits the weight
+  void editWeight(puppy toEdit, String newWeight) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setWeight(int.parse(newWeight));
+    }
+  }
+
+  // edits the Breed
+  void editBreed(puppy toEdit, String newBreed) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setBreed(newBreed);
+    }
+  }
+
+  // edits the Age
+  void editAge(puppy toEdit, String newAge) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setWeight(int.parse(newAge));
+    }
+  }
+}
