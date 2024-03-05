@@ -3,7 +3,7 @@ class puppy {
   String breed = ""; // breed of the dog
   int age = 0; // age of the dog
   int weight = 0; // the dogs weight
-  DateTime birthday = (02/14/2000) as DateTime; // the dogs bday
+//  DateTime birthday = (02/14/2000) as DateTime; // the dogs bday
   String photoLink = "";  // an asset link to the profile pic
 
   // constructor
@@ -28,10 +28,6 @@ class puppy {
   int getAge() {
     return age; 
   }
-  
-  DateTime getBirthday() {
-    return birthday;
-  }
 
   String getPhoto() {
     return photoLink;
@@ -51,10 +47,6 @@ class puppy {
 
   void setAge(int age) {
     this.age = age;
-  }
-
-  void setBirthday(DateTime birthday) {
-    this.birthday = birthday;
   }
 
   void setWeight(int weight) {
