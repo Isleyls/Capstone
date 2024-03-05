@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
+import 'profilePage.dart';
 import 'puppy.dart';
 
 void main()
@@ -194,156 +194,6 @@ class HomePage extends StatelessWidget
   }
 }
 
-
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Center( // Wrapping the DropdownButton with Center widget
-          child: DropdownButton<String>(
-             hint: Text(
-              'Choose/Add Profile',
-              style: TextStyle(
-                color: Colors.black, // Change text color to black
-              ),
-            ),
-            onChanged: (value) {
-              if (value == 'Profile 1') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 2') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 3') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              }
-              else if (value == 'AddProfile') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NewProfilePage()),
-                );
-              }
-            },
-            items: [
-              DropdownMenuItem(
-                value: 'Page 1',
-                child: Text('Profile 1'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 2',
-                child: Text('Profile 2'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 3',
-                child: Text('Profile 3'),
-              ),
-              DropdownMenuItem(
-                value: 'AddProfile',
-                child: Text('Add/Switch Profile'),
-              ),
-            ],
-          ),
-        ),
-      ),
-        /*actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],*/
-      
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: ListView(
-              children: [
-                Container(
-                  height: 250,
-                  color: Colors.blue,
-                  child: Center(
-                    child: Column(
-                      children: [
-                        SizedBox(height: 30),
-                        ClipOval(
-                          child: Image.asset(
-                            'lesson.jpg',
-                            width: 140,
-                            height: 140,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);
-                           
-                          },
-                          child: Text('Edit Profile'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: Center(
-                    child: Text(
-                      "Breed",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                  child: Center(
-                    child: Text(
-                      "Age",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 150,
-                  color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                  child: Center(
-                    child: Text(
-                      "Weight",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -498,6 +348,12 @@ class NewProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.popUntil(context, ModalRoute.withName('/'));
+          },
+        ),
         title: Text("Add Profile"),
         backgroundColor: Colors.blue,
         
@@ -555,13 +411,7 @@ class NewProfilePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Action to perform when the submit button is pressed
-                        print("Submit Button Pressed for name");
-                      },
-                      child: Text("Submit"),
-                    )
+                    
                   ],
                 ),
               ),
@@ -578,13 +428,7 @@ class NewProfilePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 10),
-                    ElevatedButton(
-                    onPressed: () {
-                      // Action to perform when the submit button is pressed
-                      print("Submit Button Pressed for breed");
-                    },
-                    child: Text("Submit"),
-                  )
+                    
                 ],
               ),
             ),
@@ -601,13 +445,7 @@ class NewProfilePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 10),
-                ElevatedButton(
-                onPressed: () {
-                  // Action to perform when the submit button is pressed
-                  print("Submit Button Pressed for Age");
-                },
-                child: Text("Submit"),
-              )
+                
             ],
           ),
         ),
@@ -623,16 +461,29 @@ class NewProfilePage extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 10),
-              ElevatedButton(
-              onPressed: () {
-                // Action to perform when the submit button is pressed
-                print("Submit Button Pressed for Weight");
-              },
-              child: Text("Submit"),
-            )
+              
           ],
         ),
-      )
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+        child: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  print("Submit Button Pressed for name");
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
+
+                },
+                child: Text("Submit"),
+              )
+            ],
+          ),
+        ),
+      ),
+      
               ],
             ),
           ),
