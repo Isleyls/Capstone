@@ -3,12 +3,12 @@ import "package:pup_iq/puppy.dart";
 
 
 
-class PuppyList extends ChangeNotifier {
-  List<puppy> puppyList = [
+class PuppyService extends ChangeNotifier {
+  static List<puppy> puppyList = [
     puppy("Tobias", "Corgi", 0, 10)
   ];
 
-  void addPuppy(String name, String breed, String age, String weight) {
+  static void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
   }
 

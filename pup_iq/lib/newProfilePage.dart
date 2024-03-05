@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:pup_iq/PuppyService.dart';
 import 'profilePage.dart';
-import 'puppy.dart';
 
 class NewProfilePage extends StatelessWidget {
+  // fields for the class infomation
+  String newName = "";
+  String newAge = "";
+  String newBreed = "";
+  String newWeight = "";
+
   @override
   Widget build(BuildContext context) {
+    var _nameFieldController = TextEditingController();
+    var _ageFieldController = TextEditingController();
+    var _weightFieldController = TextEditingController();
+    var _breedFieldController = TextEditingController();
+
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -65,6 +76,7 @@ class NewProfilePage extends StatelessWidget {
                     children: [
                     Expanded(
                       child: TextFormField(
+                        controller: _nameFieldController,
                         decoration: InputDecoration(
                           labelText: "Enter your pet's name",
                         ),
@@ -82,6 +94,7 @@ class NewProfilePage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: TextFormField(
+                        controller: _breedFieldController,
                         decoration: InputDecoration(
                           labelText: "Enter your pet's breed",
                         ),
@@ -99,6 +112,7 @@ class NewProfilePage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextFormField(
+                    controller: _ageFieldController,
                     decoration: InputDecoration(
                       labelText: "Enter your pet's Age",
                     ),
@@ -115,6 +129,7 @@ class NewProfilePage extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
+                  controller: _weightFieldController,
                   decoration: InputDecoration(
                     labelText: "Enter your pet's weight",
                   ),
@@ -134,8 +149,15 @@ class NewProfilePage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   print("Submit Button Pressed for name");
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
+                  newName = _nameFieldController.text;
+                  newAge = _ageFieldController.text;
+                  newBreed = _breedFieldController.text;  
+                  newWeight = _weightFieldController.text;
 
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
+                  PuppyService.addPuppy(newName, newBreed, newAge, newWeight);
+
+                  print(PuppyService.puppyList);
                 },
                 child: Text("Submit"),
               )
