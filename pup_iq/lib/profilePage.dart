@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'main.dart'; // Import HomePage if it's needed here
+import 'main.dart';
+import 'editProfilePage.dart';
+import 'newProfilePage.dart'; 
 
 class ProfilePage extends StatelessWidget {
   @override
