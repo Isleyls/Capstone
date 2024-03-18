@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                       child: Center(
                         child: Text("Current Lesson",
-                        style: TextStyle(fontSize: 25,
+                        style: TextStyle(fontSize: 25,     
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         ),
