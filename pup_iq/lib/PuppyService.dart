@@ -4,11 +4,12 @@ import 'package:localstorage/localstorage.dart';
 
 class PuppyService extends ChangeNotifier {
 
-  static LocalStorage storage = new LocalStorage("puppies.json");
+  static LocalStorage storage = LocalStorage("puppies.json");
   
   // might change from static with a singleton
   static List<puppy> puppyList = [
-    puppy("Tobias", "Corgi", 0, 10)
+    puppy("Tobias", "Corgi", 0, 10),
+    puppy("steve", "german", 0, 10)
   ];
 
   static void addPuppy(String name, String breed, String age, String weight) {
@@ -30,7 +31,7 @@ class PuppyService extends ChangeNotifier {
   }
 
   // Returns the list of dogs
-  List<puppy> getData() {
+  static List<puppy> getData() {
     return puppyList;
   }
 

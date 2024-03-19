@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget
                     height: 100,),
         backgroundColor: Colors.blue,
         actions: <Widget>[ IconButton(
-          icon: Icon(Icons.account_circle),
+          icon: const Icon(Icons.account_circle),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
           },
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget
             children: <Widget>[
               Container(
                 height: 75,
-                child: DrawerHeader(
+                child: const DrawerHeader(
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
@@ -71,28 +71,28 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: Text("Resources"),
+              ListTile(title: const Text("Resources"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
 
               },
               ),
-               ListTile(title: Text("FAQ"),
+               ListTile(title: const Text("FAQ"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
               },
               ),
-               ListTile(title: Text("New Owners"),
+               ListTile(title: const Text("New Owners"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NewOwnersPage()),);
               },
               ),
-               ListTile(title: Text("Privacy Policy"),
+               ListTile(title: const Text("Privacy Policy"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),);
               },
               ),
-               ListTile(title: Text("Terms Of Use"),
+               ListTile(title: const Text("Terms Of Use"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => TermsOfUsePage()),);
               },
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget
           children: [
             Expanded(
               child: ListView(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 children:[
                   GestureDetector(
                     onTap: () {
@@ -113,8 +113,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Current Lesson",
                         style: TextStyle(fontSize: 25,     
                         color: Colors.black,
@@ -130,8 +130,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("New Dog",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -147,8 +147,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Basics",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -164,8 +164,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
+                      child: const Center(
                         child: Text("Intermediate",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -181,8 +181,8 @@ class HomePage extends StatelessWidget
                     },
                     child: Container(
                       height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      color: const Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
+                      child: const Center(
                         child: Text("Hard",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -209,13 +209,13 @@ class FAQPage extends StatefulWidget {
   _FAQPageState createState() => _FAQPageState();
 }
 class _FAQPageState extends State<FAQPage> {
-  List<bool> _isOpen = [false, false, false, false]; // Tracks if each FAQ item is open
+  final List<bool> _isOpen = [false, false, false, false]; // Tracks if each FAQ item is open
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FAQ'),
+        title: const Text('FAQ'),
       ),
       body: ListView(
         children: [
@@ -292,7 +292,7 @@ class FAQItem extends StatelessWidget {
             return ListTile(
               title: Text(
                 question,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   
@@ -301,7 +301,7 @@ class FAQItem extends StatelessWidget {
             );
           },
           body: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Text(answer),
           ),
         ),
@@ -327,7 +327,7 @@ class _SitPage extends State<SitPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Sit"),
+      appBar: AppBar(title: const Text("Sit"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -350,7 +350,7 @@ class _DownPage extends State<DownPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Down"),
+      appBar: AppBar(title: const Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -373,7 +373,7 @@ class _StayPage extends State<StayPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Stay"),
+      appBar: AppBar(title: const Text("Stay"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -396,7 +396,7 @@ class _LeavePage extends State<LeavePage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Down"),
+      appBar: AppBar(title: const Text("Down"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -419,7 +419,7 @@ class _BellsPage extends State<BellsPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Ring Bell For Bathroom"),
+      appBar: AppBar(title: const Text("Ring Bell For Bathroom"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
@@ -442,7 +442,7 @@ class _CrawlPage extends State<CrawlPage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      appBar: AppBar(title: Text("Crawl"),
+      appBar: AppBar(title: const Text("Crawl"),
       backgroundColor: Colors.blue),
       body: Center(
         child: YoutubePlayer(controller: ytcontrol),
