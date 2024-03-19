@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'puppy.dart';
 
 class HardPage extends StatelessWidget{
   Widget build(BuildContext context){

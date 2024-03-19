@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'puppy.dart';
 
 class IntermediatePage extends StatelessWidget{
   Widget build(BuildContext context){

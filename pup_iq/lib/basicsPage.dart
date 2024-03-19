@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'puppy.dart';
 
 class BasicsPage extends StatelessWidget{
   Widget build(BuildContext context){

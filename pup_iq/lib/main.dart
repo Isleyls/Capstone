@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'profilePage.dart';
-import 'newProfilePage.dart';
-import 'editProfilePage.dart';
 import 'resources.dart';
-import 'puppy.dart';
 import 'newOwnersPage.dart';
 import 'privacyPolicyPage.dart';
 import 'termsOfUsePage.dart';

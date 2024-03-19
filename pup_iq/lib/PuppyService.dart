@@ -1,9 +1,12 @@
 import "package:flutter/material.dart";
 import "package:pup_iq/puppy.dart";
-
-
+import 'package:localstorage/localstorage.dart';
 
 class PuppyService extends ChangeNotifier {
+
+  static LocalStorage storage = new LocalStorage("puppies.json");
+  
+  // might change from static with a singleton
   static List<puppy> puppyList = [
     puppy("Tobias", "Corgi", 0, 10)
   ];
@@ -11,6 +14,16 @@ class PuppyService extends ChangeNotifier {
   static void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
   }
+
+
+  static void saveList() {
+    storage.setItem("puppyList", puppyList);
+  }
+
+  static List<puppy> getFromStorage() {
+    return storage.getItem("puppyList");
+  }
+
 
   puppy getPuppy(int index) {
     return puppyList[index];

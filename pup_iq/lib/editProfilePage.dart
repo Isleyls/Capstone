@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'puppy.dart';
+
 class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class EditProfilePage extends StatelessWidget {
                         ),
                         SizedBox(height:10),
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.white, // Set the background color to white
                           ),

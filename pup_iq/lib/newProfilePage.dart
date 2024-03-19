@@ -156,8 +156,8 @@ class NewProfilePage extends StatelessWidget {
 
                   Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
                   PuppyService.addPuppy(newName, newBreed, newAge, newWeight);
-
-                  print(PuppyService.puppyList);
+                  PuppyService.saveList();
+                  
                 },
                 child: Text("Submit"),
               )
@@ -165,13 +165,11 @@ class NewProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      
               ],
             ),
           ),
         ],
       )
-
     );
   }
 }

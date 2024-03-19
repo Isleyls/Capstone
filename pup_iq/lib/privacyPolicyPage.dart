@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'puppy.dart';
 
 class PrivacyPolicyPage extends StatelessWidget{
   Widget build(BuildContext context){

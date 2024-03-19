@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'puppy.dart';
 
 class NewDogPage extends StatelessWidget{
   Widget build(BuildContext context){
@@ -20,7 +18,7 @@ class NewDogPage extends StatelessWidget{
                     child: Container(
                       height: 205,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      child: const Center(
                         child: Text("Potty Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -36,7 +34,7 @@ class NewDogPage extends StatelessWidget{
                     child: Container(
                       height: 205,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      child: const Center(
                         child: Text("Crate Training",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -52,7 +50,7 @@ class NewDogPage extends StatelessWidget{
                     child: Container(
                       height: 205,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
+                      child: const Center(
                         child: Text("Name Learning",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
@@ -68,7 +66,7 @@ class NewDogPage extends StatelessWidget{
                     child: Container(
                       height: 205,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
-                      child: Center(
+                      child: const Center(
                         child: Text("Leash Introduction",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
