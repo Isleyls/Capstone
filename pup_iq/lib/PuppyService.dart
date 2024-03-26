@@ -58,7 +58,7 @@ class PuppyService extends ChangeNotifier {
     int index = puppyList.indexOf(toEdit);
 
     if (index != -1) {
-      puppyList[index].setWeight(int.parse(newAge));
+      puppyList[index].setAge(int.parse(newAge));
     }
   }
 }

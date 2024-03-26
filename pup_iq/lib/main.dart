@@ -12,6 +12,8 @@ import 'newDogPage.dart';
 import 'basicsPage.dart';
 import 'intermediatePage.dart';
 import 'hardPage.dart';
+import 'privacyPage.dart';
+//import 'package:flutter_icon/flutter_icon.dart';
 
 
 void main()
@@ -92,7 +94,7 @@ class HomePage extends StatelessWidget
               ),
                ListTile(title: Text("Privacy Policy"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => privacyPage()),);
               },
               ),
                ListTile(title: Text("Terms Of Use"),
