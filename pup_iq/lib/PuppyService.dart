@@ -10,6 +10,9 @@ class PuppyService extends ChangeNotifier {
     puppy("Tobias", "Corgi", 0, 10)
   ];
 
+
+  //TODO; make a default constructor that gets profiles from local storage. 
+
   void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
   }
