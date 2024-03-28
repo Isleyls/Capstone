@@ -87,11 +87,6 @@ class HomePage extends StatelessWidget
                 Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
               },
               ),
-               ListTile(title: Text("New Owners"),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => NewOwnersPage()),);
-              },
-              ),
                ListTile(title: Text("Privacy Policy"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => privacyPage()),);
@@ -112,23 +107,6 @@ class HomePage extends StatelessWidget
               child: ListView(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 children:[
-                  GestureDetector(
-                    onTap: () {
-                      print("Current Lesson tapped");
-                    },
-                    child: Container(
-                      height: 150,
-                      color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
-                      child: Center(
-                        child: Text("Current Lesson",
-                        style: TextStyle(fontSize: 25,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        ),
-                        ),
-                      ),
-                      ),
-                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => NewDogPage()),);
