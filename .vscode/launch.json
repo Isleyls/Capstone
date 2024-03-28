@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib/loginPage.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "pup_iq",
+            "program": "lib/loginPage.dart"
+        },
+        {
+            "name": "Flutter (lib/main1.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "pup_iq",
+            "program": "lib/main1.dart"
+        },
+        {
+            "name": "Flutter (lib/main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "pup_iq",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "Flutter (lib/main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "pup_iq",
+            "program": "lib/main.dart"
+        }
+    ]
+}
