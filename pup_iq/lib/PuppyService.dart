@@ -2,13 +2,15 @@ import "package:flutter/material.dart";
 import "package:pup_iq/puppy.dart";
 
 
-
+/*
+* This is a service designed to manage the List of puppy profiles.
+*/
 class PuppyService extends ChangeNotifier {
-  static List<puppy> puppyList = [
+  List<puppy> puppyList = [
     puppy("Tobias", "Corgi", 0, 10)
   ];
 
-  static void addPuppy(String name, String breed, String age, String weight) {
+  void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
   }
 

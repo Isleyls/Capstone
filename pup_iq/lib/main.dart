@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pup_iq/PuppyService.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'profilePage.dart';
 import 'newProfilePage.dart';
@@ -15,6 +16,7 @@ import 'hardPage.dart';
 import 'privacyPage.dart';
 //import 'package:flutter_icon/flutter_icon.dart';
 
+PuppyService globalService = PuppyService();
 
 void main()
 {

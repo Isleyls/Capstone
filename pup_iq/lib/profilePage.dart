@@ -1,75 +1,40 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'editProfilePage.dart';
-import 'newProfilePage.dart'; 
+import 'newProfilePage.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        
-        title: Center( // Wrapping the DropdownButton with Center widget
-          child: DropdownButton<String>(
-             hint: Text(
-              'Choose/Add Profile',
-              style: TextStyle(
-                color: Colors.black, // Change text color to black
+          backgroundColor: Colors.blue,
+          title: Center(
+            // Wrapping the DropdownButton with Center widget
+            child: DropdownButton<String>(
+              hint: Text(
+                'Choose Profile',
+                style: TextStyle(
+                  color: Colors.black, // Change text color to black
+                ),
               ),
+              onChanged: (value) {},
+              items: [],
             ),
-            onChanged: (value) {
-              if (value == 'Profile 1') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 2') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 3') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              }
-              else if (value == 'AddProfile') {
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.add_circle), // Icon for the button
+              onPressed: () {
+                // Define the action when the button is pressed
+                // For example, navigate to the settings page
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewProfilePage()),
                 );
-              }
-            },
-            items: [
-              DropdownMenuItem(
-                value: 'Page 1',
-                child: Text('Profile 1'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 2',
-                child: Text('Profile 2'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 3',
-                child: Text('Profile 3'),
-              ),
-              DropdownMenuItem(
-                value: 'AddProfile',
-                child: Text('Add/Switch Profile'),
-              ),
-            ],
-          ),
-        ),
-      ),
-        /*actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],*/
-      
+              },
+            ),
+          ]),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -94,8 +59,11 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);
-                           
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditProfilePage()),
+                            );
                           },
                           child: Text('Edit Profile'),
                         ),
