@@ -7,25 +7,34 @@ import "package:pup_iq/puppy.dart";
 * This is a service designed to manage the List of puppy profiles.
 */
 class PuppyService extends ChangeNotifier {
+  
+  // main form of storage for profiles
   List<puppy> puppyList = [
     puppy("Tobias", "Corgi", 0, 10)
   ];
 
+  // helps us save profiles for persistent app uses
   final LocalStorage storage = new LocalStorage("user_data");
 
-
-  //TODO; make a default constructor that gets profiles from local storage. 
+  // A default constructor that gets profiles from local storage. 
   PuppyService() {
     puppyList = storage.getItem("puppies");
 
   }
 
+  // Removes a puppy from the puppyList
+  void removePuppy(puppy toRemove) {
+    puppyList.remove(toRemove);
+    storage.setItem("puppies", puppyList);
+  }
 
+  // Adds a puppy to the puppyList
   void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
     storage.setItem("puppies", puppyList);
   }
 
+  // gets a puppy from the puppyList
   puppy getPuppy(int index) {
     return puppyList[index];
   }
