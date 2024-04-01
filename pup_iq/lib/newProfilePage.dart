@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pup_iq/main.dart';
-import 'profilePage.dart';
 
 class NewProfilePage extends StatelessWidget {
   // fields for the class infomation
@@ -145,21 +144,19 @@ class NewProfilePage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
-                              print("Submit Button Pressed for name");
                               newName = nameFieldController.text;
                               newAge = ageFieldController.text;
                               newBreed = breedFieldController.text;
                               newWeight = weightFieldController.text;
-
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProfilePage()),
-                              );
+                              
                               globalService.addPuppy(
                                   newName, newBreed, newAge, newWeight);
 
-                              print(globalService.puppyList);
+                              //TODO;
+                              Navigator.pop(  // ISSUE -> does not reload page, so the list does not update on the first visit
+                                context,
+                              );
+
                             },
                             child: Text("Submit"),
                           )

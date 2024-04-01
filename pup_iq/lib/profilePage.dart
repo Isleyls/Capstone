@@ -16,8 +16,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    currentList = globalService.getData(); // use the did change dependencies method instead on oninit
-    selectedItem = currentList.first;
+    currentList = globalService.getData(); 
+    // This will have to change, if there is nothing in the list
+    selectedItem = currentList.first; 
   }
 
   @override

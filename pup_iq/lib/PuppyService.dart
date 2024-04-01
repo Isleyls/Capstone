@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:localstorage/localstorage.dart";
 import "package:pup_iq/puppy.dart";
 
 
@@ -10,11 +11,19 @@ class PuppyService extends ChangeNotifier {
     puppy("Tobias", "Corgi", 0, 10)
   ];
 
+  final LocalStorage storage = new LocalStorage("user_data");
+
 
   //TODO; make a default constructor that gets profiles from local storage. 
+  PuppyService() {
+    puppyList = storage.getItem("puppies");
+
+  }
+
 
   void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
+    storage.setItem("puppies", puppyList);
   }
 
   puppy getPuppy(int index) {
@@ -37,6 +46,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setName(newName);
+      storage.setItem("puppies", puppyList);
     }
   }
 
@@ -46,6 +56,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setWeight(int.parse(newWeight));
+      storage.setItem("puppies", puppyList);
     }
   }
 
@@ -55,6 +66,8 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setBreed(newBreed);
+      storage.setItem("puppies", puppyList);
+
     }
   }
 
@@ -64,6 +77,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setAge(int.parse(newAge));
+      storage.setItem("puppies", puppyList);
     }
   }
 }
