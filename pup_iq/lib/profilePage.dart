@@ -1,25 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:pup_iq/puppy.dart';
 import 'main.dart';
 import 'editProfilePage.dart';
 import 'newProfilePage.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late puppy selectedItem;
+  late List<puppy> currentList;
+
+  @override
+  void initState() {
+    super.initState();
+    currentList = globalService.getData(); // use the did change dependencies method instead on oninit
+    selectedItem = currentList.first;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.blue,
           title: Center(
-            // Wrapping the DropdownButton with Center widget
-            child: DropdownButton<String>(
-              hint: Text(
-                'Choose Profile',
-                style: TextStyle(
-                  color: Colors.black, // Change text color to black
-                ),
-              ),
-              onChanged: (value) {},
-              items: [],
+            child: DropdownButton<puppy>(
+              value: selectedItem,
+              onChanged: (newValue) {
+                setState(() {
+                  selectedItem = newValue!;
+                });
+              },
+              items: currentList.map<DropdownMenuItem<puppy>>((puppy value) {
+                return DropdownMenuItem<puppy>(
+                  value: value,
+                  child: Text(value.name),
+                );
+              }).toList(),
             ),
           ),
           actions: <Widget>[
