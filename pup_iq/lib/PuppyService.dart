@@ -40,6 +40,13 @@ class PuppyService extends ChangeNotifier {
     storage.setItem("puppies", puppyList);
   }
 
+  // Removes a puppy from the list
+  void deletePuppy(puppy toDelete) {
+    puppyList.remove(toDelete);
+
+    storage.setItem("puppies", puppyList);
+  }
+
   // gets a puppy from the puppyList
   puppy getPuppy(int index) {
     return puppyList[index];

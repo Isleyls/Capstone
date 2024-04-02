@@ -166,11 +166,11 @@ class EditProfilePage extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("Delete Profile"),
-          content: Text("Are you sure you want to delete your profile?"),
+          content: Text("Are you sure you want to delete the profile?"),
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                // Perform deletion logic here
+                // Perform deletion logic here (call to delete in globalService)
                 Navigator.of(context).pop(); // Close the dialog
               },
               child: Text(
