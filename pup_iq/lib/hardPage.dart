@@ -16,7 +16,7 @@ class HardPage extends StatelessWidget{
                   
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> CrawlPage()),);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context)=> CrawlPage()),);
                     },
                     child: Container(
                       height: 205,
@@ -65,7 +65,7 @@ class HardPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => BellsPage()),);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => BellsPage()),);
                     },
                     child: Container(
                       height: 205,

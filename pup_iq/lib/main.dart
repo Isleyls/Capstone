@@ -14,6 +14,7 @@ import 'basicsPage.dart';
 import 'intermediatePage.dart';
 import 'hardPage.dart';
 import 'privacyPage.dart';
+import 'sit.dart';
 //import 'package:flutter_icon/flutter_icon.dart';
 
 PuppyService globalService = PuppyService();
@@ -297,7 +298,7 @@ class FAQItem extends StatelessWidget {
 
 
 
-class SitPage extends StatefulWidget{
+/*class SitPage extends StatefulWidget{
   const SitPage({Key? key}) : super(key: key);
 
   @override
@@ -434,4 +435,4 @@ class _CrawlPage extends State<CrawlPage>
       ),
     );
 }
-}
+}*/
