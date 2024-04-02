@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'puppy.dart';
+import 'sit.dart';
 
 class BasicsPage extends StatelessWidget{
   Widget build(BuildContext context){
@@ -32,7 +33,7 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DownPage()),);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => DownPage()),);
                   
                     },
                     child: Container(
@@ -50,7 +51,7 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => StayPage()),);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => StayPage()),);
                     },
                     child: Container(
                       height: 205,
@@ -67,7 +68,7 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LeavePage()),);
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => LeavePage()),);
                     },
                     child: Container(
                       height: 205,

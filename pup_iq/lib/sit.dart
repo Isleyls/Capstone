@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class TeachDogToSitPage extends StatelessWidget {
+class SitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +97,24 @@ class TeachDogToSitPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: 20),
+            Center(
+              child: YoutubePlayer(
+                controller: YoutubePlayerController(
+                  initialVideoId: 'n93JMBO4cpg', // Change to your video ID
+                  flags: YoutubePlayerFlags(
+                    autoPlay: true,
+                    mute: false,
+                  ),
+                ),
+                showVideoProgressIndicator: true,
+                progressIndicatorColor: Colors.blueAccent,
+                progressColors: ProgressBarColors(
+                  playedColor: Colors.blue,
+                  handleColor: Colors.blueAccent,
+                ),
+              ),
             ),
           ],
         ),
