@@ -9,6 +9,8 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
+
+// TODO; put a "default profile", if the profile list is empty
 class _ProfilePageState extends State<ProfilePage> {
   late puppy selectedItem;
   late List<puppy> currentList;
