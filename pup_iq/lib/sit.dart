@@ -14,6 +14,24 @@ class SitPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: YoutubePlayer(
+                controller: YoutubePlayerController(
+                  initialVideoId: 'n93JMBO4cpg', // Change to your video ID
+                  flags: YoutubePlayerFlags(
+                    autoPlay: true,
+                    mute: false,
+                  ),
+                ),
+                showVideoProgressIndicator: true,
+                progressIndicatorColor: Colors.blueAccent,
+                progressColors: ProgressBarColors(
+                  playedColor: Colors.blue,
+                  handleColor: Colors.blueAccent,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             Text(
               "Teach Your Dog to Sit",
               style: TextStyle(
@@ -97,24 +115,6 @@ class SitPage extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            SizedBox(height: 20),
-            Center(
-              child: YoutubePlayer(
-                controller: YoutubePlayerController(
-                  initialVideoId: 'n93JMBO4cpg', // Change to your video ID
-                  flags: YoutubePlayerFlags(
-                    autoPlay: true,
-                    mute: false,
-                  ),
-                ),
-                showVideoProgressIndicator: true,
-                progressIndicatorColor: Colors.blueAccent,
-                progressColors: ProgressBarColors(
-                  playedColor: Colors.blue,
-                  handleColor: Colors.blueAccent,
-                ),
-              ),
             ),
           ],
         ),
