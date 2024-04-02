@@ -142,7 +142,7 @@ class NewProfilePage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ElevatedButton(
+                          ElevatedButton( // submit button
                             onPressed: () {
                               newName = nameFieldController.text;
                               newAge = ageFieldController.text;

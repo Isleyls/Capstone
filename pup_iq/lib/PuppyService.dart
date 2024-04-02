@@ -11,6 +11,7 @@ class PuppyService extends ChangeNotifier {
   // main form of storage for profiles
   List<puppy> puppyList = [
     puppy("Tobias", "Corgi", 0, 10)
+
   ];
 
   // helps us save profiles for persistent app uses
@@ -18,8 +19,13 @@ class PuppyService extends ChangeNotifier {
 
   // A default constructor that gets profiles from local storage. 
   PuppyService() {
-    puppyList = storage.getItem("puppies");
+    var storedList = storage.getItem("puppies");
 
+
+    if (storedList != null) {
+      print(storedList.toString());
+      puppyList = storage.getItem("puppies");
+    }
   }
 
   // Removes a puppy from the puppyList
