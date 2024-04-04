@@ -22,7 +22,8 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
     currentList = globalService.getData(); 
     // This will have to change, if there is nothing in the list
-    selectedItem = currentList.first; 
+    print(globalService.getAProfile());
+    selectedItem = globalService.getAProfile(); 
   }
 
   @override
@@ -101,7 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Breed",
+                      selectedItem.breed,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -115,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
                   child: Center(
                     child: Text(
-                      "Age",
+                      selectedItem.age.toString() + " year(s) old",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -129,7 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Weight",
+                      selectedItem.weight.toString() + "lbs",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,

@@ -28,11 +28,15 @@ class PuppyService extends ChangeNotifier {
     }
   }
 
-  // Removes a puppy from the puppyList
-  void removePuppy(puppy toRemove) {
-    puppyList.remove(toRemove);
-    storage.setItem("puppies", puppyList);
+  puppy getAProfile() {
+    if (puppyList.isEmpty) {
+      return new puppy("No Profiles Present", "", 0, 0); 
+    }
+    else {
+      return puppyList.first;
+    }
   }
+
 
   // Adds a puppy to the puppyList
   void addPuppy(String name, String breed, String age, String weight) {
