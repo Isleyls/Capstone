@@ -16,10 +16,12 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
+
     currentList = globalService.getData();
-    // removes duplicates in the list 
-    currentList = currentList.toSet().toList();
-    selectedItem = globalService.getAProfile(); 
+    // removes duplicates in the list BUT also cancels the refreshing issue
+    // currentList = currentList.toSet().toList();
+    print("This is running somewhere");
+    selectedItem = globalService.getAProfile();
   }
 
   @override
@@ -52,7 +54,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewProfilePage()),
-                ).then((value) => setState(() {}));
+                ); //.then((value) => setState(() {}));
               },
             ),
           ]),
@@ -85,9 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               MaterialPageRoute(
                                   builder: (context) =>
                                       EditProfilePage(toEdit: selectedItem)),
-                            ).then((value) {
-                             
-                                setState(() {});}); // Maybe resets the state?
+                            ); //.then((value) {setState(() {});})  // Maybe resets the state?
                           },
                           child: Text('Edit Profile'),
                         ),
