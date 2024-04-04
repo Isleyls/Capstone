@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:pup_iq/main.dart';
+import 'package:pup_iq/profilePage.dart';
 import 'puppy.dart';
 
 class EditProfilePage extends StatelessWidget {
+
+  String newName = "";
+  String newAge = "";
+  String newBreed = "";
+  String newWeight = "";
+
+  late puppy toEdit;
+  var nameFieldController = TextEditingController();
+  var ageFieldController = TextEditingController();
+  var weightFieldController = TextEditingController();
+  var breedFieldController = TextEditingController();
+  
+  EditProfilePage({required this.toEdit});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +69,7 @@ class EditProfilePage extends StatelessWidget {
                               color: Colors.blue, // Set the icon color
                               onPressed: () {
                                 // Action to perform when the edit button is pressed
+                                
                                 print("Edit Image Pressed");
                               },
                             ),
@@ -68,6 +85,7 @@ class EditProfilePage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            controller: nameFieldController,
                             decoration: InputDecoration(
                               labelText: "Enter your pet's name",
                             ),
@@ -77,7 +95,8 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
-                            print("Submit Button Pressed for name");
+                            newName = nameFieldController.text; // grab the text from the field
+                            globalService.editName(toEdit, newName); // edit the name through the service
                           },
                           child: Text("Submit"),
                         )
@@ -100,6 +119,10 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
+                            newBreed = breedFieldController.text; // grab the text from the field
+                            globalService.editBreed(toEdit, newBreed); // edit the name through the service
+
+
                             print("Submit Button Pressed for breed");
                           },
                           child: Text("Submit"),
@@ -123,6 +146,9 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
+                            newAge = ageFieldController.text; // grab the text from the field
+                            globalService.editAge(toEdit, newAge); // edit the name through the service
+
                             print("Submit Button Pressed for Age");
                           },
                           child: Text("Submit"),
@@ -147,6 +173,9 @@ class EditProfilePage extends StatelessWidget {
                           onPressed: () {
                             // Action to perform when the submit button is pressed
                             print("Submit Button Pressed for Weight");
+
+                            newWeight = weightFieldController.text; // grab the text from the field
+                            globalService.editWeight(toEdit, newWeight); // edit the name through the service
                           },
                           child: Text("Submit"),
                         )
@@ -171,7 +200,9 @@ class EditProfilePage extends StatelessWidget {
             TextButton(
               onPressed: () {
                 // Perform deletion logic here (call to delete in globalService)
+                globalService.deletePuppy(toEdit);
                 Navigator.of(context).pop(); // Close the dialog
+                Navigator.of(context).pop(); // navigate back to the profile select page (from the edit page)
               },
               child: Text(
                 "Delete",

@@ -11,6 +11,8 @@ class ProfilePage extends StatefulWidget {
 
 
 // TODO; put a "default profile", if the profile list is empty
+
+// TODO: Starting to pass information between pages
 class _ProfilePageState extends State<ProfilePage> {
   late puppy selectedItem;
   late List<puppy> currentList;
@@ -84,7 +86,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditProfilePage()),
+                                  builder: (context) => EditProfilePage(toEdit : selectedItem)
+                                ),
                             );
                           },
                           child: Text('Edit Profile'),
