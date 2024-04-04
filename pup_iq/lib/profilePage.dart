@@ -9,10 +9,6 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-
-// TODO; put a "default profile", if the profile list is empty
-
-// TODO: Starting to pass information between pages
 class _ProfilePageState extends State<ProfilePage> {
   late puppy selectedItem;
   late List<puppy> currentList;
@@ -20,9 +16,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    currentList = globalService.getData(); 
-    // This will have to change, if there is nothing in the list
-    print(globalService.getAProfile());
+    currentList = globalService.getData();
+    // removes duplicates in the list 
+    currentList = currentList.toSet().toList();
     selectedItem = globalService.getAProfile(); 
   }
 
@@ -56,7 +52,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewProfilePage()),
-                );
+                ).then((value) => setState(() {}));
               },
             ),
           ]),
@@ -87,9 +83,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditProfilePage(toEdit : selectedItem)
-                                ),
-                            );
+                                  builder: (context) =>
+                                      EditProfilePage(toEdit: selectedItem)),
+                            ).then((value) {
+                             
+                                setState(() {});}); // Maybe resets the state?
                           },
                           child: Text('Edit Profile'),
                         ),
