@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pup_iq/main.dart';
-import 'package:pup_iq/profilePage.dart';
 import 'puppy.dart';
 
 class EditProfilePage extends StatelessWidget {
-
   String newName = "";
   String newAge = "";
   String newBreed = "";
@@ -15,7 +13,7 @@ class EditProfilePage extends StatelessWidget {
   var ageFieldController = TextEditingController();
   var weightFieldController = TextEditingController();
   var breedFieldController = TextEditingController();
-  
+
   EditProfilePage({required this.toEdit});
 
   @override
@@ -69,7 +67,7 @@ class EditProfilePage extends StatelessWidget {
                               color: Colors.blue, // Set the icon color
                               onPressed: () {
                                 // Action to perform when the edit button is pressed
-                                
+
                                 print("Edit Image Pressed");
                               },
                             ),
@@ -95,8 +93,10 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
-                            newName = nameFieldController.text; // grab the text from the field
-                            globalService.editName(toEdit, newName); // edit the name through the service
+                            newName = nameFieldController
+                                .text; // grab the text from the field
+                            globalService.editName(toEdit,
+                                newName); // edit the name through the service
                           },
                           child: Text("Submit"),
                         )
@@ -110,6 +110,7 @@ class EditProfilePage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            controller: breedFieldController,
                             decoration: InputDecoration(
                               labelText: "Enter your pet's breed",
                             ),
@@ -119,9 +120,10 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
-                            newBreed = breedFieldController.text; // grab the text from the field
-                            globalService.editBreed(toEdit, newBreed); // edit the name through the service
-
+                            newBreed = breedFieldController
+                                .text; // grab the text from the field
+                            globalService.editBreed(toEdit,
+                                newBreed); // edit the name through the service
 
                             print("Submit Button Pressed for breed");
                           },
@@ -137,6 +139,7 @@ class EditProfilePage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            controller: ageFieldController,
                             decoration: InputDecoration(
                               labelText: "Enter your pet's Age",
                             ),
@@ -146,10 +149,12 @@ class EditProfilePage extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             // Action to perform when the submit button is pressed
-                            newAge = ageFieldController.text; // grab the text from the field
-                            globalService.editAge(toEdit, newAge); // edit the name through the service
+                            newAge = ageFieldController
+                                .text; // grab the text from the field
+                            print(ageFieldController.text);
 
-                            print("Submit Button Pressed for Age");
+                            globalService.editAge(toEdit,
+                                newAge); // edit the name through the service
                           },
                           child: Text("Submit"),
                         )
@@ -163,6 +168,7 @@ class EditProfilePage extends StatelessWidget {
                       children: [
                         Expanded(
                           child: TextFormField(
+                            controller: weightFieldController,
                             decoration: InputDecoration(
                               labelText: "Enter your pet's weight",
                             ),
@@ -174,8 +180,10 @@ class EditProfilePage extends StatelessWidget {
                             // Action to perform when the submit button is pressed
                             print("Submit Button Pressed for Weight");
 
-                            newWeight = weightFieldController.text; // grab the text from the field
-                            globalService.editWeight(toEdit, newWeight); // edit the name through the service
+                            newWeight = weightFieldController
+                                .text; // grab the text from the field
+                            globalService.editWeight(toEdit,
+                                newWeight); // edit the name through the service
                           },
                           child: Text("Submit"),
                         )
@@ -202,7 +210,8 @@ class EditProfilePage extends StatelessWidget {
                 // Perform deletion logic here (call to delete in globalService)
                 globalService.deletePuppy(toEdit);
                 Navigator.of(context).pop(); // Close the dialog
-                Navigator.of(context).pop(); // navigate back to the profile select page (from the edit page)
+                Navigator.of(context)
+                    .pop(); // navigate back to the profile select page (from the edit page)
               },
               child: Text(
                 "Delete",

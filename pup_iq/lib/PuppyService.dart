@@ -10,7 +10,7 @@ class PuppyService extends ChangeNotifier {
   
   // main form of storage for profiles
   List<puppy> puppyList = [
-    puppy("Tobias", "Corgi", 0, 10)
+    puppy(name : "Tobias", breed : "Corgi", age : 0, weight : 10)
 
   ];
 
@@ -28,9 +28,10 @@ class PuppyService extends ChangeNotifier {
     }
   }
 
+  // Used in the profilepAge
   puppy getAProfile() {
     if (puppyList.isEmpty) {
-      return new puppy("No Profiles Present", "", 0, 0); 
+      return new puppy(name : "No Profiles Present", breed: "", age : 0, weight : 0); 
     }
     else {
       return puppyList.first;
@@ -40,15 +41,15 @@ class PuppyService extends ChangeNotifier {
 
   // Adds a puppy to the puppyList
   void addPuppy(String name, String breed, String age, String weight) {
-    puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
-    storage.setItem("puppies", puppyList);
+    puppyList.add(puppy(name : name, breed : breed, age : int.parse(age), weight : int.parse(weight)));
+    saveList();
   }
 
   // Removes a puppy from the list
   void deletePuppy(puppy toDelete) {
     puppyList.remove(toDelete);
 
-    storage.setItem("puppies", puppyList);
+    saveList();
   }
 
   // gets a puppy from the puppyList
@@ -72,7 +73,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setName(newName);
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
 
@@ -82,7 +83,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setWeight(int.parse(newWeight));
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
 
@@ -92,8 +93,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setBreed(newBreed);
-      storage.setItem("puppies", puppyList);
-
+      saveList();
     }
   }
 
@@ -103,7 +103,15 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setAge(int.parse(newAge));
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
+
+  // Saves the current puppyList to local storage, to be done on any change
+  void saveList() { //TODO needs testing
+
+    storage.setItem('items', puppyList.map((puppy) => puppy.toJson()).toList());
+
+  }
+  
 }
