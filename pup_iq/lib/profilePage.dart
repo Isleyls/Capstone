@@ -1,75 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:pup_iq/puppy.dart';
 import 'main.dart';
 import 'editProfilePage.dart';
-import 'newProfilePage.dart'; 
+import 'newProfilePage.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late puppy selectedItem;
+  late List<puppy> currentList;
+
+  @override
+  void initState() {
+    super.initState();
+    currentList = [];
+
+    currentList = globalService.getData();
+
+    selectedItem = globalService.getAProfile();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        
-        title: Center( // Wrapping the DropdownButton with Center widget
-          child: DropdownButton<String>(
-             hint: Text(
-              'Choose/Add Profile',
-              style: TextStyle(
-                color: Colors.black, // Change text color to black
-              ),
+          backgroundColor: Colors.blue,
+          title: Center(
+            child: DropdownButton<puppy>(
+              value: selectedItem,
+              onChanged: (newValue) {
+                setState(() {
+                  selectedItem = newValue!;
+                });
+              },
+              items: currentList.map<DropdownMenuItem<puppy>>((puppy value) {
+                return DropdownMenuItem<puppy>(
+                  value: value,
+                  child: Text(value.name),
+                );
+              }).toList(),
             ),
-            onChanged: (value) {
-              if (value == 'Profile 1') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 2') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              } else if (value == 'Profile 3') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
-                );
-              }
-              else if (value == 'AddProfile') {
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.add_circle), // Icon for the button
+              onPressed: () {
+                // Define the action when the button is pressed
+                // For example, navigate to the settings page
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewProfilePage()),
-                );
-              }
-            },
-            items: [
-              DropdownMenuItem(
-                value: 'Page 1',
-                child: Text('Profile 1'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 2',
-                child: Text('Profile 2'),
-              ),
-              DropdownMenuItem(
-                value: 'Page 3',
-                child: Text('Profile 3'),
-              ),
-              DropdownMenuItem(
-                value: 'AddProfile',
-                child: Text('Add/Switch Profile'),
-              ),
-            ],
-          ),
-        ),
-      ),
-        /*actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () {},
-          ),
-        ],*/
-      
+                ); //.then((value) => setState(() {}));
+              },
+            ),
+          ]),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -94,8 +81,12 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(height: 20),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage()),);
-                           
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      EditProfilePage(toEdit: selectedItem)),
+                            ); //.then((value) {setState(() {});})  // Maybe resets the state?
                           },
                           child: Text('Edit Profile'),
                         ),
@@ -108,7 +99,7 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Breed",
+                      selectedItem.breed,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -122,7 +113,7 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
                   child: Center(
                     child: Text(
-                      "Age",
+                      selectedItem.age.toString() + " year(s) old",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -136,7 +127,7 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Weight",
+                      selectedItem.weight.toString() + "lbs",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,

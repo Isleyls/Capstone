@@ -1,33 +1,33 @@
+import 'package:json_annotation/json_annotation.dart';
+
+@JsonSerializable()
 class puppy {
-  String name = ""; // name of the dog
-  String breed = ""; // breed of the dog
-  int age = 0; // age of the dog
-  int weight = 0; // the dogs weight
-  String photoLink = "";  // an asset link to the profile pic
+  late String name; // name of the dog
+  late String breed; // breed of the dog
+  late int age; // age of the dog
+  late int weight; // the dogs weight
+  String photoLink = ""; // an asset link to the profile pic
 
   // constructor
-  puppy(String name, String breed, int age, int weight) {
-    this.name = name;
-    this.breed = breed;
-    this.age = age;
-    this.weight = weight;
-    // TODO: Set all of the lesson arrays to false. Not set yet because we do not know how many lessons 
-    // we will have.
-  }
+  puppy({
+    required this.name,
+    required this.breed,
+    required this.age,
+    required this.weight
+  });
 
   // getters and setters
   String getName() {
-    return name; 
+    return name;
   }
 
   String getBreed() {
-    return breed; 
+    return breed;
   }
 
   int getAge() {
-    return age; 
+    return age;
   }
-  
 
   String getPhoto() {
     return photoLink;
@@ -49,9 +49,28 @@ class puppy {
     this.age = age;
   }
 
-
   void setWeight(int weight) {
     this.weight = weight;
   }
 
+  // Generate method to deserialize from JSON
+  factory puppy.fromJson(Map<String, dynamic> json) => 
+    puppy(
+      name: json['name'], 
+      breed: json['breed'], 
+      age: json['age'], 
+      weight: json['weight']
+      );
+
+  Map<String, dynamic> toJson() => {
+    'name' : name,
+    'breed' : breed, 
+    'age' : age,
+    'weight' : weight
+  };
+    
+
+  // Generate method to serialize to JSON
+
 }
+
