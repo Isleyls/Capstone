@@ -4,7 +4,6 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'profilePage.dart';
 import 'newProfilePage.dart';
 import 'editProfilePage.dart';
-import 'resources.dart';
 import 'puppy.dart';
 import 'newOwnersPage.dart';
 import 'privacyPolicyPage.dart';
@@ -79,27 +78,21 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: Text("Resources"),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
-
-              },
-              ),
               ListTile(title: Text("Related Articles"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
 
               },
               ),
               ListTile(title: Text("Common Challenges"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
 
               },
               ),
               ListTile(title: Text("Nutrition & HealthCare"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
 
               },
               ),
@@ -136,7 +129,7 @@ class HomePage extends StatelessWidget
                       height: 150,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
                       child: Center(
-                        child: Text("New Dog",
+                        child: Text("Foundations",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

@@ -110,6 +110,14 @@ class SitPage extends StatelessWidget {
                         "   - Quiet Environment: Choose a quiet place with minimal distractions to conduct the training session. This could be your living room or backyard.",
                         style: TextStyle(fontSize: 18),
                       ),
+                      Text(
+                        "2. Establishing a Connection:",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "   - Get down to your dog's level to create a sense of camaraderie",
+                        style: TextStyle(fontSize: 18),
+                      ),
                       // Add more steps as necessary
                     ],
                   ),
