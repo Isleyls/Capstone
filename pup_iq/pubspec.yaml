@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  json_annotation: ^4.0.0
+
   shared_preferences: ^2.0.8
   localstorage: ^4.0.0+1
 

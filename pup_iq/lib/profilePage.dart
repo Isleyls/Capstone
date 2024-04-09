@@ -16,9 +16,11 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    currentList = globalService.getData(); 
-    // This will have to change, if there is nothing in the list
-    selectedItem = currentList.first; 
+    currentList = [];
+
+    currentList = globalService.getData();
+
+    selectedItem = globalService.getAProfile();
   }
 
   @override
@@ -51,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => NewProfilePage()),
-                );
+                ); //.then((value) => setState(() {}));
               },
             ),
           ]),
@@ -82,8 +84,9 @@ class _ProfilePageState extends State<ProfilePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => EditProfilePage()),
-                            );
+                                  builder: (context) =>
+                                      EditProfilePage(toEdit: selectedItem)),
+                            ); //.then((value) {setState(() {});})  // Maybe resets the state?
                           },
                           child: Text('Edit Profile'),
                         ),
@@ -96,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Breed",
+                      selectedItem.breed,
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -110,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
                   child: Center(
                     child: Text(
-                      "Age",
+                      selectedItem.age.toString() + " year(s) old",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -124,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                   child: Center(
                     child: Text(
-                      "Weight",
+                      selectedItem.weight.toString() + "lbs",
                       style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,

@@ -7,15 +7,11 @@ import "package:pup_iq/puppy.dart";
 * This is a service designed to manage the List of puppy profiles.
 */
 class PuppyService extends ChangeNotifier {
+  // List to store profiles
+  List<puppy> puppyList = [];
   
-  // main form of storage for profiles
-  List<puppy> puppyList = [
-    puppy("Tobias", "Corgi", 0, 10)
-
-  ];
-
   // helps us save profiles for persistent app uses
-  final LocalStorage storage = new LocalStorage("user_data");
+  final LocalStorage storage = LocalStorage("user_data");
 
   // A default constructor that gets profiles from local storage. 
   PuppyService() {
@@ -23,21 +19,33 @@ class PuppyService extends ChangeNotifier {
 
 
     if (storedList != null) {
-      print(storedList.toString());
       puppyList = storage.getItem("puppies");
     }
   }
 
-  // Removes a puppy from the puppyList
-  void removePuppy(puppy toRemove) {
-    puppyList.remove(toRemove);
-    storage.setItem("puppies", puppyList);
+  // Used in the profilepAge
+  puppy getAProfile() {
+    if (puppyList.isEmpty) {
+      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0); 
+    }
+    else {
+      return puppyList.first;
+    }
   }
+
 
   // Adds a puppy to the puppyList
   void addPuppy(String name, String breed, String age, String weight) {
-    puppyList.add(puppy(name, breed, int.parse(age), int.parse(weight)));
-    storage.setItem("puppies", puppyList);
+    puppyList.add(puppy(name : name, breed : breed, age : int.parse(age), weight : int.parse(weight)));
+
+    saveList();
+  }
+
+  // Removes a puppy from the list
+  void deletePuppy(puppy toDelete) {
+    puppyList.remove(toDelete);
+
+    saveList();
   }
 
   // gets a puppy from the puppyList
@@ -61,7 +69,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setName(newName);
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
 
@@ -71,7 +79,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setWeight(int.parse(newWeight));
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
 
@@ -81,8 +89,7 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setBreed(newBreed);
-      storage.setItem("puppies", puppyList);
-
+      saveList();
     }
   }
 
@@ -92,7 +99,15 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setAge(int.parse(newAge));
-      storage.setItem("puppies", puppyList);
+      saveList();
     }
   }
+
+  // Saves the current puppyList to local storage, to be done on any change
+  void saveList() { //TODO needs testing on a phone maybe?
+
+    storage.setItem('items', puppyList.map((puppy) => puppy.toJson()).toList());
+
+  }
+  
 }
