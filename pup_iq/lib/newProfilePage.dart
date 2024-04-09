@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pup_iq/PuppyService.dart';
+import 'package:pup_iq/main.dart';
 import 'profilePage.dart';
 
 class NewProfilePage extends StatelessWidget {
-  // fields for the class infomation
+  // fields for the class information
   String newName = "";
   String newAge = "";
   String newBreed = "";
@@ -11,23 +11,21 @@ class NewProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _nameFieldController = TextEditingController();
-    var _ageFieldController = TextEditingController();
-    var _weightFieldController = TextEditingController();
-    var _breedFieldController = TextEditingController();
-
+    var nameFieldController = TextEditingController();
+    var ageFieldController = TextEditingController();
+    var weightFieldController = TextEditingController();
+    var breedFieldController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName('/'));
+            Navigator.pop(context);
           },
         ),
         title: Text("Add Profile"),
         backgroundColor: Colors.blue,
-        
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -50,11 +48,12 @@ class NewProfilePage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        SizedBox(height:10),
+                        SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.white, // Set the background color to white
+                            color: Colors
+                                .white, // Set the background color to white
                           ),
                           child: IconButton(
                             icon: Icon(Icons.edit),
@@ -69,109 +68,112 @@ class NewProfilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 8),
                   child: Row(
                     children: [
-                    Expanded(
-                      child: TextFormField(
-                        controller: _nameFieldController,
-                        decoration: InputDecoration(
-                          labelText: "Enter your pet's name",
+                      Expanded(
+                        child: TextFormField(
+                          controller: nameFieldController,
+                          decoration: InputDecoration(
+                            labelText: "Enter your pet's name",
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    
-                  ],
+                      SizedBox(width: 10),
+                    ],
+                  ),
                 ),
-              ),
-                
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        controller: _breedFieldController,
-                        decoration: InputDecoration(
-                          labelText: "Enter your pet's breed",
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: breedFieldController,
+                          decoration: InputDecoration(
+                            labelText: "Enter your pet's breed",
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    
-                ],
-              ),
-            ),
-                
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-              child: Row(
-              children: [
-                Expanded(
-                  child: TextFormField(
-                    controller: _ageFieldController,
-                    decoration: InputDecoration(
-                      labelText: "Enter your pet's Age",
+                      SizedBox(width: 10),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: ageFieldController,
+                          decoration: InputDecoration(
+                            labelText: "Enter your pet's Age",
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: weightFieldController,
+                          decoration: InputDecoration(
+                            labelText: "Enter your pet's weight",
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8, vertical: 8),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          // submit button
+                          onPressed: () {
+                            newName = nameFieldController.text;
+                            newAge = ageFieldController.text;
+                            newBreed = breedFieldController.text;
+                            newWeight = weightFieldController.text;
+
+                            globalService.addPuppy(
+                                newName, newBreed, newAge, newWeight);
+
+                            // Replace the current page with the profile page
+                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
+                          },
+                          child: Text("Submit"),
+                        )
+                      ],
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
-                
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  controller: _weightFieldController,
-                  decoration: InputDecoration(
-                    labelText: "Enter your pet's weight",
-                  ),
-                ),
-              ),
-              SizedBox(width: 10),
-              
-          ],
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  print("Submit Button Pressed for name");
-                  newName = _nameFieldController.text;
-                  newAge = _ageFieldController.text;
-                  newBreed = _breedFieldController.text;  
-                  newWeight = _weightFieldController.text;
-
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()),);
-                  PuppyService.addPuppy(newName, newBreed, newAge, newWeight);
-
-                  print(PuppyService.puppyList);
-                },
-                child: Text("Submit"),
-              )
-            ],
-          ),
-        ),
-      ),
-      
               ],
             ),
           ),
         ],
-      )
-
+      ),
     );
   }
 }
