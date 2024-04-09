@@ -7,15 +7,11 @@ import "package:pup_iq/puppy.dart";
 * This is a service designed to manage the List of puppy profiles.
 */
 class PuppyService extends ChangeNotifier {
+  // List to store profiles
+  List<puppy> puppyList = [];
   
-  // main form of storage for profiles
-  List<puppy> puppyList = [
-    puppy(name : "Tobias", breed : "Corgi", age : 0, weight : 10)
-
-  ];
-
   // helps us save profiles for persistent app uses
-  final LocalStorage storage = new LocalStorage("user_data");
+  final LocalStorage storage = LocalStorage("user_data");
 
   // A default constructor that gets profiles from local storage. 
   PuppyService() {
@@ -23,7 +19,6 @@ class PuppyService extends ChangeNotifier {
 
 
     if (storedList != null) {
-      print(storedList.toString());
       puppyList = storage.getItem("puppies");
     }
   }
@@ -31,7 +26,7 @@ class PuppyService extends ChangeNotifier {
   // Used in the profilepAge
   puppy getAProfile() {
     if (puppyList.isEmpty) {
-      return new puppy(name : "No Profiles Present", breed: "", age : 0, weight : 0); 
+      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0); 
     }
     else {
       return puppyList.first;
@@ -42,6 +37,7 @@ class PuppyService extends ChangeNotifier {
   // Adds a puppy to the puppyList
   void addPuppy(String name, String breed, String age, String weight) {
     puppyList.add(puppy(name : name, breed : breed, age : int.parse(age), weight : int.parse(weight)));
+
     saveList();
   }
 
@@ -108,7 +104,7 @@ class PuppyService extends ChangeNotifier {
   }
 
   // Saves the current puppyList to local storage, to be done on any change
-  void saveList() { //TODO needs testing
+  void saveList() { //TODO needs testing on a phone maybe?
 
     storage.setItem('items', puppyList.map((puppy) => puppy.toJson()).toList());
 

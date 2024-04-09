@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pup_iq/main.dart';
+import 'package:pup_iq/profilePage.dart';
 import 'puppy.dart';
 
 class EditProfilePage extends StatelessWidget {
@@ -97,6 +98,13 @@ class EditProfilePage extends StatelessWidget {
                                 .text; // grab the text from the field
                             globalService.editName(toEdit,
                                 newName); // edit the name through the service
+                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
                           },
                           child: Text("Submit"),
                         )
@@ -125,7 +133,13 @@ class EditProfilePage extends StatelessWidget {
                             globalService.editBreed(toEdit,
                                 newBreed); // edit the name through the service
 
-                            print("Submit Button Pressed for breed");
+                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
                           },
                           child: Text("Submit"),
                         )
@@ -155,6 +169,14 @@ class EditProfilePage extends StatelessWidget {
 
                             globalService.editAge(toEdit,
                                 newAge); // edit the name through the service
+
+                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
                           },
                           child: Text("Submit"),
                         )
@@ -177,13 +199,18 @@ class EditProfilePage extends StatelessWidget {
                         SizedBox(width: 10),
                         ElevatedButton(
                           onPressed: () {
-                            // Action to perform when the submit button is pressed
-                            print("Submit Button Pressed for Weight");
-
                             newWeight = weightFieldController
                                 .text; // grab the text from the field
                             globalService.editWeight(toEdit,
                                 newWeight); // edit the name through the service
+
+                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProfilePage(),
+                              ),
+                            );
                           },
                           child: Text("Submit"),
                         )
@@ -210,8 +237,13 @@ class EditProfilePage extends StatelessWidget {
                 // Perform deletion logic here (call to delete in globalService)
                 globalService.deletePuppy(toEdit);
                 Navigator.of(context).pop(); // Close the dialog
-                Navigator.of(context)
-                    .pop(); // navigate back to the profile select page (from the edit page)
+                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
+                );
               },
               child: Text(
                 "Delete",

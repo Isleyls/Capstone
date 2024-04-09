@@ -16,11 +16,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
+    currentList = [];
 
     currentList = globalService.getData();
-    // removes duplicates in the list BUT also cancels the refreshing issue
-    // currentList = currentList.toSet().toList();
-    print("This is running somewhere");
+
     selectedItem = globalService.getAProfile();
   }
 
