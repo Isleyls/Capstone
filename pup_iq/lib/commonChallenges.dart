@@ -94,67 +94,23 @@ class CommonChallengesPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Place Holder",
+                        "Set Realistic Expectations",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
+                        "Starting Small",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
+                        "Reinforcement",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
+                        "What to Avoid",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      // Add more steps as necessary
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Health Concerns",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black, // Change header color to black
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "Place Holder",
+                        "Choosing a Professional Trainer",
                         style: TextStyle(fontSize: 18),
                       ),
                       // Add more steps as necessary
@@ -163,6 +119,7 @@ class CommonChallengesPage extends StatelessWidget {
                 ),
               ],
             ),
+            
             SizedBox(height: 20),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,69 +139,26 @@ class CommonChallengesPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Place Holder",
+                        "Create A Routine",
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "Place Holder",
+                        "Prioritize Exercise",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
+                        "Doggy DayCare/Playgroups",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "Place Holder",
+                        "Incorporate Training Time",
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "Place Holder",
+                        "Be Flexible",
                         style: TextStyle(fontSize: 18),
                       ),
                       // Add more steps as necessary
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Adjustment Period",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black, // Change header color to black
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "Place Holder",
-                        style: TextStyle(fontSize: 18),
-                      ),
                     ],
                   ),
                 ),
