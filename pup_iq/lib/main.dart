@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pup_iq/PuppyService.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'profilePage.dart';
 import 'newProfilePage.dart';
 import 'editProfilePage.dart';
-import 'resources.dart';
-import 'puppy.dart';
-import 'newOwnersPage.dart';
-import 'privacyPolicyPage.dart';
 import 'termsOfUsePage.dart';
 import 'newDogPage.dart';
 import 'basicsPage.dart';
 import 'intermediatePage.dart';
 import 'hardPage.dart';
 import 'privacyPage.dart';
-import 'sit.dart';
+import 'commonChallenges.dart';
+import 'nutrition.dart';
 //import 'package:flutter_icon/flutter_icon.dart';
 
 PuppyService globalService = PuppyService();
@@ -79,9 +75,21 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: Text("Resources"),
+              ListTile(title: Text("Related Articles"),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => resourcesPage()),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
+
+              },
+              ),
+              ListTile(title: Text("Common Challenges"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CommonChallengesPage()),);
+
+              },
+              ),
+              ListTile(title: Text("Nutrition & HealthCare"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NutritionPage()),);
 
               },
               ),
@@ -118,7 +126,7 @@ class HomePage extends StatelessWidget
                       height: 150,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.2),
                       child: Center(
-                        child: Text("New Dog",
+                        child: Text("Foundations",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -178,7 +186,6 @@ class HomePage extends StatelessWidget
                       ),
                       ),
                   ),
-
                 ],
                 ),
             ),
@@ -295,144 +302,3 @@ class FAQItem extends StatelessWidget {
     );
   }
 }
-
-
-
-/*class SitPage extends StatefulWidget{
-  const SitPage({Key? key}) : super(key: key);
-
-  @override
-  State<SitPage> createState() => _SitPage();
-}
-class _SitPage extends State<SitPage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: 'n93JMBO4cpg'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Sit"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}
-class DownPage extends StatefulWidget{
-  const DownPage({Key? key}) : super(key: key);
-
-  @override
-  State<DownPage> createState() => _DownPage();
-}
-class _DownPage extends State<DownPage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: '8Vsvxvay8PA'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Down"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}
-class StayPage extends StatefulWidget{
-  const StayPage({Key? key}) : super(key: key);
-
-  @override
-  State<StayPage> createState() => _StayPage();
-}
-class _StayPage extends State<StayPage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: 'qOCmi-nD_Pk'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Stay"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}
-class LeavePage extends StatefulWidget{
-  const LeavePage({Key? key}) : super(key: key);
-
-  @override
-  State<LeavePage> createState() => _LeavePage();
-}
-class _LeavePage extends State<LeavePage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: 'fKAF1g21Umc'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Down"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}
-class BellsPage extends StatefulWidget{
-  const BellsPage({Key? key}) : super(key: key);
-
-  @override
-  State<BellsPage> createState() => _BellsPage();
-}
-class _BellsPage extends State<BellsPage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: 'nAXjgUZP5Dg'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Ring Bell For Bathroom"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}
-class CrawlPage extends StatefulWidget{
-  const CrawlPage({Key? key}) : super(key: key);
-
-  @override
-  State<CrawlPage> createState() => _CrawlPage();
-}
-class _CrawlPage extends State<CrawlPage>
-{
-  YoutubePlayerController ytcontrol = YoutubePlayerController(
-    initialVideoId: 'pyOrzeHEw44'
-  );
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      appBar: AppBar(title: Text("Crawl"),
-      backgroundColor: Colors.blue),
-      body: Center(
-        child: YoutubePlayer(controller: ytcontrol),
-      ),
-    );
-}
-}*/

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class SitPage extends StatelessWidget {
+class CommonChallengesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Teach Your Dog to Sit"),
+        title: Text("Common Challenges Faced By New Dog Owners"),
         backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
@@ -14,26 +13,9 @@ class SitPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: YoutubePlayer(
-                controller: YoutubePlayerController(
-                  initialVideoId: 'n93JMBO4cpg', // Change to your video ID
-                  flags: YoutubePlayerFlags(
-                    autoPlay: true,
-                    mute: false,
-                  ),
-                ),
-                showVideoProgressIndicator: true,
-                progressIndicatorColor: Colors.blueAccent,
-                progressColors: ProgressBarColors(
-                  playedColor: Colors.blue,
-                  handleColor: Colors.blueAccent,
-                ),
-              ),
-            ),
             SizedBox(height: 20),
             Text(
-              "Teach Your Dog to Sit",
+              "Common Challenges",
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.black, // Change header color to black
@@ -42,7 +24,7 @@ class SitPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              "Introducing basic commands to your furry friend is not only essential for their obedience but also forms the foundation for effective communication between you and your pet. One of the fundamental commands every dog should learn is 'sit.' Teaching your dog to sit not only enhances their manners but also serves as a building block for more advanced training. Here’s a comprehensive step-by-step guide to help you teach your dog this crucial command.",
+              "Welcoming a new addition to the family can be exciting, and rewarding. However, as exciting as this experience can be you can come across some challenges along the way. Below will be examples of some of the common challenges faced by new dog owners and resources that you can reference to seek help during these times.",
               style: TextStyle(fontSize: 18),
             ),
             SizedBox(height: 20),
@@ -50,7 +32,7 @@ class SitPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Understanding the Importance of Teaching Sit Command:",
+                  "Behavioral Issues",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black, // Change header color to black
@@ -64,17 +46,30 @@ class SitPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "- Foundation for Obedience: Sitting on command establishes a basis for other commands and behaviors.",
+                        "Aggression",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "- Safety: Sitting can help control your dog in various situations, such as crossing a road or meeting new people.",
+                        "Barking",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "- Focus and Attention: Training your dog to sit helps improve their focus and attention on you, strengthening your bond.",
+                        "Destructive Chewing",
                         style: TextStyle(fontSize: 18),
                       ),
+                      Text(
+                        "Food Guarding",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "Whining",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "Separation Anxiety",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      // Add more steps as necessary
                     ],
                   ),
                 ),
@@ -85,7 +80,7 @@ class SitPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Step-by-Step Guide:",
+                  "Socialization",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black, // Change header color to black
@@ -99,23 +94,68 @@ class SitPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "1. Preparation:",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "   - Treats: Have plenty of small, easily chewable treats ready. These treats will serve as positive reinforcement during the training.",
+                        "Set Realistic Expectations",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "   - Quiet Environment: Choose a quiet place with minimal distractions to conduct the training session. This could be your living room or backyard.",
+                        "Starting Small",
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        "2. Establishing a Connection:",
+                        "Reinforcement",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "What to Avoid",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "Choosing a Professional Trainer",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      // Add more steps as necessary
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            
+            SizedBox(height: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Time & Commitment",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black, // Change header color to black
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Create A Routine",
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "   - Get down to your dog's level to create a sense of camaraderie",
+                        "Prioritize Exercise",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "Doggy DayCare/Playgroups",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text(
+                        "Incorporate Training Time",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Be Flexible",
                         style: TextStyle(fontSize: 18),
                       ),
                       // Add more steps as necessary
@@ -126,6 +166,7 @@ class SitPage extends StatelessWidget {
             ),
           ],
         ),
+        
       ),
     );
   }
