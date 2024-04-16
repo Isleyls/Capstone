@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-void main() {
+/*void main() {
   runApp(MyApp());
-}
+}*/
 
 class MyApp extends StatelessWidget {
   @override
