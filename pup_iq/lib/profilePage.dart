@@ -53,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 // For example, navigate to the settings page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NewProfilePage()),
+                  MaterialPageRoute(builder: (context) => NewProfilePage(toEdit: selectedItem)),
                 ); //.then((value) => setState(() {}));
               },
             ),

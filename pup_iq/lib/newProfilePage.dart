@@ -1,22 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:pup_iq/main.dart';
-import 'profilePage.dart';
+import 'package:pup_iq/profilePage.dart';
+import 'puppy.dart';
 
-class NewProfilePage extends StatelessWidget {
+class NewProfilePage extends StatefulWidget {
+  final puppy toEdit;
+
+  NewProfilePage({required this.toEdit});
+
+  @override
+  _NewProfilePageState createState() => _NewProfilePageState();
+}
+class _NewProfilePageState extends State<NewProfilePage> {
   // fields for the class information
+  late puppy toEdit;
   String newName = "";
   String newAge = "";
   String newBreed = "";
   String newWeight = "";
   String newPic = "";
-
-  @override
-  Widget build(BuildContext context) {
-    var nameFieldController = TextEditingController();
+  List<String> profilePictures = [
+    'lesson.jpg',
+    'fun.jpg',
+    'fun3.jpg',
+    // Add more image paths here as needed
+  ];
+  var nameFieldController = TextEditingController();
     var ageFieldController = TextEditingController();
     var weightFieldController = TextEditingController();
     var breedFieldController = TextEditingController();
-    var picFieldController = TextEditingController();
+    String selectedProfilePicture = 'fun3.jpg';
+
+  @override
+  Widget build(BuildContext context) {
+
+
 
     return Scaffold(
       appBar: AppBar(
@@ -44,7 +62,7 @@ class NewProfilePage extends StatelessWidget {
                         SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
-                            'lesson.jpg',
+                            selectedProfilePicture,
                             width: 140,
                             height: 140,
                             fit: BoxFit.cover,
@@ -61,6 +79,7 @@ class NewProfilePage extends StatelessWidget {
                             icon: Icon(Icons.edit),
                             color: Colors.blue, // Set the icon color
                             onPressed: () {
+                              _showProfilePictureSelectionDialog(context);
                               // Action to perform when the edit button is pressed
                               print("Edit Image Pressed");
                             },
@@ -152,10 +171,9 @@ class NewProfilePage extends StatelessWidget {
                             newAge = ageFieldController.text;
                             newBreed = breedFieldController.text;
                             newWeight = weightFieldController.text;
-                            newPic = picFieldController.text;
 
                             globalService.addPuppy(
-                                newName, newBreed, newAge, newWeight, newPic);
+                                newName, newBreed, newAge, newWeight, selectedProfilePicture);
 
                             // Replace the current page with the profile page
                             Navigator.pop(context);
@@ -177,6 +195,61 @@ class NewProfilePage extends StatelessWidget {
           ),
         ],
       ),
+      
     );
   }
+  void _showProfilePictureSelectionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Choose Profile Picture"),
+          content: Container(
+            width: double.maxFinite,
+            child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: profilePictures.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedProfilePicture = profilePictures[index];
+                    });
+                    Navigator.pop(context);
+                    showImageConfirmationDialog(context);
+
+                  },
+                  child: Image.asset(
+                    profilePictures[index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+  void showImageConfirmationDialog(BuildContext context) {
+   
+             
+                // Perform deletion logic here (call to delete in globalService)
+                globalService.updateProfilePicture(toEdit, selectedProfilePicture);
+                Navigator.of(context).pop(); // Close the dialog
+               
+                Navigator.pushReplacement
+                (
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
+                );
+  }
+  
 }
