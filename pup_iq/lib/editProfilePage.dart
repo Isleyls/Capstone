@@ -1,11 +1,18 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:pup_iq/main.dart';
 import 'package:pup_iq/profilePage.dart';
 import 'puppy.dart';
 
-class EditProfilePage extends StatelessWidget {
+class EditProfilePage extends StatefulWidget {
+  final puppy toEdit;
+
+  EditProfilePage({required this.toEdit});
+
+  @override
+  _EditProfilePageState createState() => _EditProfilePageState();
+}
+
+class _EditProfilePageState extends State<EditProfilePage> {
   String newName = "";
   String newAge = "";
   String newBreed = "";
@@ -16,70 +23,85 @@ class EditProfilePage extends StatelessWidget {
   var ageFieldController = TextEditingController();
   var weightFieldController = TextEditingController();
   var breedFieldController = TextEditingController();
+  String selectedProfilePicture = 'lesson.jpg'; // Default profile picture
 
-  EditProfilePage({required this.toEdit});
+  // Define profilePictures list
+  List<String> profilePictures = [
+    'lesson.jpg',
+    'fun.jpg',
+    'fun3.jpg',
+    // Add more image paths here as needed
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    toEdit = widget.toEdit;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text("Edit Profile"),
-            backgroundColor: Colors.blue,
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  // send an alert to ensure the user wants to delete the profile,
-                  showDeleteConfirmationDialog(context);
-                },
-                child: Text("Delete Profile"),
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                ),
-              )
-            ]),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  Container(
-                    height: 250,
-                    color: Colors.blue,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          SizedBox(height: 30),
-                          ClipOval(
-                            child: Image.asset(
-                              'lesson.jpg',
-                              width: 140,
-                              height: 140,
-                              fit: BoxFit.cover,
-                            ),
+      appBar: AppBar(
+        title: Text("Edit Profile"),
+        backgroundColor: Colors.blue,
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              // send an alert to ensure the user wants to delete the profile,
+              showDeleteConfirmationDialog(context);
+            },
+            child: Text("Delete Profile"),
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: ListView(
+              children: [
+                Container(
+                  height: 250,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30),
+                        ClipOval(
+                          child: Image.asset(
+                            selectedProfilePicture,
+                            width: 140,
+                            height: 140,
+                            fit: BoxFit.cover,
                           ),
-                          SizedBox(height: 10),
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors
-                                  .white, // Set the background color to white
-                            ),
-                            child: IconButton(
-                              icon: Icon(Icons.edit),
-                              color: Colors.blue, // Set the icon color
-                              onPressed: () {
-                                // Action to perform when the edit button is pressed
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            color: Colors.blue,
+                            onPressed: () {
+                              _showProfilePictureSelectionDialog(context);
+                              //showImageConfirmationDialog(context);
 
-                                print("Edit Image Pressed");
-                              },
-                            ),
-                          )
-                        ],
-                      ),
+                            },
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                  Padding(
+                ),
+                // Remaining form fields and buttons
+                // ...
+              Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                     child: Row(
@@ -225,6 +247,44 @@ class EditProfilePage extends StatelessWidget {
           ],
         ));
   }
+  void _showProfilePictureSelectionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Choose Profile Picture"),
+          content: Container(
+            width: double.maxFinite,
+            child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: profilePictures.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedProfilePicture = profilePictures[index];
+                    });
+                    Navigator.pop(context);
+                    showImageConfirmationDialog(context);
+
+                  },
+                  child: Image.asset(
+                    profilePictures[index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   void showDeleteConfirmationDialog(BuildContext context) {
     showDialog(
@@ -264,5 +324,20 @@ class EditProfilePage extends StatelessWidget {
         );
       },
     );
+  }
+  void showImageConfirmationDialog(BuildContext context) {
+   
+             
+                // Perform deletion logic here (call to delete in globalService)
+                globalService.updateProfilePicture(toEdit, selectedProfilePicture);
+                Navigator.of(context).pop(); // Close the dialog
+               
+                Navigator.pushReplacement
+                (
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
+                );
   }
 }

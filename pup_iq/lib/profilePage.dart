@@ -21,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
     currentList = globalService.getData();
 
     selectedItem = globalService.getAProfile();
+    selectedItem.imagePath;
   }
 
   @override
@@ -52,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 // For example, navigate to the settings page
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => NewProfilePage()),
+                  MaterialPageRoute(builder: (context) => NewProfilePage(toEdit: selectedItem)),
                 ); //.then((value) => setState(() {}));
               },
             ),
@@ -72,7 +73,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
-                            'lesson.jpg',
+                            //profile pic
+                            selectedItem.imagePath,
                             width: 140,
                             height: 140,
                             fit: BoxFit.cover,
