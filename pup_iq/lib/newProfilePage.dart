@@ -8,6 +8,7 @@ class NewProfilePage extends StatelessWidget {
   String newAge = "";
   String newBreed = "";
   String newWeight = "";
+  String newPic = "";
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +16,7 @@ class NewProfilePage extends StatelessWidget {
     var ageFieldController = TextEditingController();
     var weightFieldController = TextEditingController();
     var breedFieldController = TextEditingController();
+    var picFieldController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -150,9 +152,10 @@ class NewProfilePage extends StatelessWidget {
                             newAge = ageFieldController.text;
                             newBreed = breedFieldController.text;
                             newWeight = weightFieldController.text;
+                            newPic = picFieldController.text;
 
                             globalService.addPuppy(
-                                newName, newBreed, newAge, newWeight);
+                                newName, newBreed, newAge, newWeight, newPic);
 
                             // Replace the current page with the profile page
                             Navigator.pop(context);

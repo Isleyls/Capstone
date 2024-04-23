@@ -26,7 +26,7 @@ class PuppyService extends ChangeNotifier {
   // Used in the profilepAge
   puppy getAProfile() {
     if (puppyList.isEmpty) {
-      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0); 
+      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0, imagePath : "fun3.jpg"); 
     }
     else {
       return puppyList.first;
@@ -35,8 +35,8 @@ class PuppyService extends ChangeNotifier {
 
 
   // Adds a puppy to the puppyList
-  void addPuppy(String name, String breed, String age, String weight) {
-    puppyList.add(puppy(name : name, breed : breed, age : int.parse(age), weight : int.parse(weight)));
+  void addPuppy(String name, String breed, String age, String weight, String imagePath) {
+    puppyList.add(puppy(name : name, breed : breed, age : int.parse(age), weight : int.parse(weight), imagePath : imagePath));
 
     saveList();
   }
@@ -99,6 +99,14 @@ class PuppyService extends ChangeNotifier {
 
     if (index != -1) {
       puppyList[index].setAge(int.parse(newAge));
+      saveList();
+    }
+  }
+  void updateProfilePicture(puppy toEdit, String imagePath) {
+    int index = puppyList.indexOf(toEdit);
+
+    if (index != -1) {
+      puppyList[index].setImagePath(imagePath);
       saveList();
     }
   }

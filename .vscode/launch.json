@@ -27,6 +27,13 @@
             "request": "launch",
             "cwd": "pup_iq",
             "program": "lib/main.dart"
+        },
+        {
+            "name": "Flutter (lib/main.dart)",
+            "type": "dart",
+            "request": "launch",
+            "cwd": "pup_iq",
+            "program": "lib/main.dart"
         }
     ]
 }

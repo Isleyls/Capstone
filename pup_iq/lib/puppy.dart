@@ -6,14 +6,16 @@ class puppy {
   late String breed; // breed of the dog
   late int age; // age of the dog
   late int weight; // the dogs weight
-  String photoLink = ""; // an asset link to the profile pic
+  String photoLink = "";
+  String imagePath; // an asset link to the profile pic
 
   // constructor
   puppy({
     required this.name,
     required this.breed,
     required this.age,
-    required this.weight
+    required this.weight,
+    required this.imagePath,
   });
 
   // getters and setters
@@ -29,8 +31,8 @@ class puppy {
     return age;
   }
 
-  String getPhoto() {
-    return photoLink;
+  void setImagePath(String newImagePath) {
+    imagePath = newImagePath;
   }
 
   int getWeight() {
@@ -59,14 +61,16 @@ class puppy {
       name: json['name'], 
       breed: json['breed'], 
       age: json['age'], 
-      weight: json['weight']
+      weight: json['weight'],
+      imagePath: json['imagePath'],
       );
 
   Map<String, dynamic> toJson() => {
     'name' : name,
     'breed' : breed, 
     'age' : age,
-    'weight' : weight
+    'weight' : weight,
+    'imagePath': imagePath
   };
     
 

@@ -21,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
     currentList = globalService.getData();
 
     selectedItem = globalService.getAProfile();
+    selectedItem.imagePath;
   }
 
   @override
@@ -72,7 +73,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(height: 30),
                         ClipOval(
                           child: Image.asset(
-                            'lesson.jpg',
+                            //profile pic
+                            selectedItem.imagePath,
                             width: 140,
                             height: 140,
                             fit: BoxFit.cover,
