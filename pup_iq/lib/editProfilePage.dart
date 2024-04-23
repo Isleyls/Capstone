@@ -23,13 +23,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
   var ageFieldController = TextEditingController();
   var weightFieldController = TextEditingController();
   var breedFieldController = TextEditingController();
-  String selectedProfilePicture = 'lesson.jpg'; // Default profile picture
+  late String selectedProfilePicture = 'lesson.jpg'; // Default profile picture
 
   // Define profilePictures list
   List<String> profilePictures = [
     'lesson.jpg',
-    'fun.jpg',
-    'fun3.jpg',
+    'brown.jpg',
+    'black.jpg',
+    'yellow.jpg',
+
     // Add more image paths here as needed
   ];
 
@@ -37,6 +39,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   void initState() {
     super.initState();
     toEdit = widget.toEdit;
+    selectedProfilePicture = toEdit.getImagePath();
   }
 
   @override

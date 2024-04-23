@@ -35,6 +35,10 @@ class puppy {
     imagePath = newImagePath;
   }
 
+  String getImagePath() {
+    return imagePath;
+  }
+
   int getWeight() {
     return weight;
   }
