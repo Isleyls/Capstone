@@ -75,6 +75,9 @@ flutter:
     - carharttColar.jpg
     - fun.jpg
     - fun3.jpg
+    - brown.jpg
+    - yellow.jpg
+    - black.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -166,7 +166,6 @@ class CommonChallengesPage extends StatelessWidget {
             ),
           ],
         ),
-        
       ),
     );
   }

@@ -26,7 +26,7 @@ class PuppyService extends ChangeNotifier {
   // Used in the profilepAge
   puppy getAProfile() {
     if (puppyList.isEmpty) {
-      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0, imagePath : "fun3.jpg"); 
+      return new puppy(name : "No Profiles Present", breed: "No Profiles Present", age : 0, weight : 0, imagePath : "lesson.jpg"); 
     }
     else {
       return puppyList.first;

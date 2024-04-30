@@ -21,15 +21,17 @@ class _NewProfilePageState extends State<NewProfilePage> {
   String newPic = "";
   List<String> profilePictures = [
     'lesson.jpg',
-    'fun.jpg',
-    'fun3.jpg',
+    'brown.jpg',
+    'black.jpg',
+    'yellow.jpg',
     // Add more image paths here as needed
   ];
+  
   var nameFieldController = TextEditingController();
     var ageFieldController = TextEditingController();
     var weightFieldController = TextEditingController();
     var breedFieldController = TextEditingController();
-    String selectedProfilePicture = 'fun3.jpg';
+    String selectedProfilePicture = 'lesson.jpg';
 
   @override
   Widget build(BuildContext context) {
