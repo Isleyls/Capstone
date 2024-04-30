@@ -31,100 +31,75 @@ class SitPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.0),
             Text(
-              "Teach Your Dog to Sit",
+              'Introduction:',
               style: TextStyle(
-                fontSize: 24,
-                color: Colors.black, // Change header color to black
                 fontWeight: FontWeight.bold,
+                fontSize: 20.0,
               ),
             ),
-            SizedBox(height: 20),
             Text(
-              "Introducing basic commands to your furry friend is not only essential for their obedience but also forms the foundation for effective communication between you and your pet. One of the fundamental commands every dog should learn is 'sit.' Teaching your dog to sit not only enhances their manners but also serves as a building block for more advanced training. Here’s a comprehensive step-by-step guide to help you teach your dog this crucial command.",
-              style: TextStyle(fontSize: 18),
+              "Teaching your puppy how to sit is a fundamental skill that sets the groundwork for obedience and communication. By mastering this basic command, your dog learns impulse control and opens the door to further training. Let's delve into the steps to teach your dog to sit effectively.",
+              style: TextStyle(fontSize: 16.0),
             ),
-            SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Understanding the Importance of Teaching Sit Command:",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black, // Change header color to black
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "- Foundation for Obedience: Sitting on command establishes a basis for other commands and behaviors.",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "- Safety: Sitting can help control your dog in various situations, such as crossing a road or meeting new people.",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "- Focus and Attention: Training your dog to sit helps improve their focus and attention on you, strengthening your bond.",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            SizedBox(height: 20.0),
+            Text(
+              'What You Need:',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
             ),
-            SizedBox(height: 20),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Step-by-Step Guide:",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black, // Change header color to black
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "1. Preparation:",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "   - Treats: Have plenty of small, easily chewable treats ready. These treats will serve as positive reinforcement during the training.",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "   - Quiet Environment: Choose a quiet place with minimal distractions to conduct the training session. This could be your living room or backyard.",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        "2. Establishing a Connection:",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "   - Get down to your dog's level to create a sense of camaraderie",
-                        style: TextStyle(fontSize: 18),
-                      ),
+            Text(
+              "- A quiet room\n"
+              "- Your dog’s favorite treats\n"
+              "- Optional: A clicker\n"
+              "- Enthusiasm",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              'Step-by-Step Guide:',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+            ),
+            Text(
+              "1. Get Close and Hold a Treat:\n"
+              "Approach your dog and hold a treat near their nose. Opt for their favorite treats, but keep the quantity small to avoid disrupting their diet.\n\n"
+              "2. Raise the Treat:\n"
+              "While your dog is focused on the treat, lift your hand above their head, enticing them to follow the treat and naturally sit down.\n\n"
+              "3. Offer the Treat:\n"
+              "Once your dog sits, immediately reward them with praise, a clicker sound (if using), and the treat.\n\n"
+              "4. Repeat:\n"
+              "Practice the sit command multiple times. Encourage your dog to stand up again by walking away or tossing a treat in the opposite direction, then repeat the process.\n\n"
+              "5. Add Verbal Cue and Hand Signal:\n"
+              "Introduce the verbal cue 'sit' along with a corresponding hand signal. Ensure your dog remains still when you give the verbal cue to avoid confusion.\n\n"
+              "6. Phase Out Treats:\n"
+              "As your dog becomes proficient, gradually decrease the reliance on treats. Transition to using only the verbal cue and hand signal, while still offering praise and enthusiasm.",
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              'Things to Avoid:',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20.0,
+              ),
+            ),
+            Text(
+              "- Long Sessions:\n"
+              "Keep training sessions brief, under 5 minutes each, to prevent boredom or frustration.\n\n"
+              "- Comfortable Environment:\n"
+              "Practice in a quiet, safe space initially to minimize distractions. Avoid public areas until your dog is more focused.\n\n"
+              "- Patience is Key:\n"
+              "Stay patient and avoid frustration. If either you or your dog becomes frustrated, take a break and resume later. Training should be enjoyable for both of you.",
+              style: TextStyle(fontSize: 16.0),
+            ),
                       // Add more steps as necessary
                     ],
-                  ),
-                ),
-              ],
-            ),
-          ],
         ),
       ),
     );
