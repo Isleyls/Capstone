@@ -6,7 +6,7 @@ class StayPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Teach Your Dog to Sit"),
+        title: Text("Teach Your Dog to Stay"),
         backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
