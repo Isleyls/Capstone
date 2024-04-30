@@ -22,7 +22,7 @@ class HardPage extends StatelessWidget{
                       height: 205,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                       child: Center(
-                        child: Text("Crawl",
+                        child: Text("Speak",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

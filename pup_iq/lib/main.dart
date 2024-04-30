@@ -75,12 +75,12 @@ class HomePage extends StatelessWidget
                 ),
               ),
               ),
-              ListTile(title: Text("Related Articles"),
+              /*ListTile(title: Text("Related Articles"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => FAQPage()),);
 
               },
-              ),
+              ),*/
               ListTile(title: Text("Common Challenges"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => CommonChallengesPage()),);
