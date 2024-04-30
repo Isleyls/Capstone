@@ -37,7 +37,7 @@ class IntermediatePage extends StatelessWidget{
                       height: 235,
                       color: Color.fromRGBO(33, 150, 243, 1).withOpacity(.3),
                       child: Center(
-                        child: Text("Speak",
+                        child: Text("Crawl",
                         style: TextStyle(fontSize: 25,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

@@ -17,7 +17,7 @@ class ShakePage extends StatelessWidget {
             Center(
               child: YoutubePlayer(
                 controller: YoutubePlayerController(
-                  initialVideoId: 'n93JMBO4cpg', // Change to your video ID
+                  initialVideoId: 'uo7Zsaw_K5w', // Change to your video ID
                   flags: YoutubePlayerFlags(
                     autoPlay: true,
                     mute: false,
