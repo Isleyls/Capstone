@@ -4,6 +4,7 @@ import 'puppy.dart';
 import 'sit.dart';
 import 'laydown.dart';
 import 'stay.dart';
+import 'shake.dart';
 
 class BasicsPage extends StatelessWidget{
   Widget build(BuildContext context){
@@ -70,7 +71,7 @@ class BasicsPage extends StatelessWidget{
                   ),
                   GestureDetector(
                     onTap: () {
-                      //Navigator.push(context, MaterialPageRoute(builder: (context) => LeavePage()),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ShakePage()),);
                     },
                     child: Container(
                       height: 205,

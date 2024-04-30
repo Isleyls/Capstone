@@ -75,7 +75,7 @@ class NutritionPage extends StatelessWidget {
         ),
         SizedBox(height: 8),
         Text(
-          'By: Your Name',
+          'By: Lani Isley & Tyler Francisco',
           style: TextStyle(
             color: Colors.grey,
             fontSize: 16,
