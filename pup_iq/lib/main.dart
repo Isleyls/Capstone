@@ -81,12 +81,12 @@ class HomePage extends StatelessWidget
 
               },
               ),*/
-              ListTile(title: Text("Common Challenges"),
+              /*ListTile(title: Text("Common Challenges"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => CommonChallengesPage()),);
 
               },
-              ),
+              ),*/
               ListTile(title: Text("Nutrition & HealthCare"),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => NutritionPage()),);
@@ -244,7 +244,8 @@ class _FAQPageState extends State<FAQPage> {
           ),
           FAQItem(
             question: 'My dog is experiencing behavioral issues, what can I do?',
-            answer: 'pupIQ has a training feature that targets behavioral issues, which is a good place to reference',
+            answer: 'Speaking to a veterinary professional about the types of behavioral issues can be useful.'
+            ' It is important to tackle these issues as soon as they start so it does not become a habit',
             isOpen: _isOpen[3],
             onTap: () {
               setState(() {
